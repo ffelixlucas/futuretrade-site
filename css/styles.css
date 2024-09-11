@@ -1,0 +1,835 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+  
+  /* Cores principais do indicador */
+  --first-color: #028877; /* Cor predominante */
+  --first-color-alt: #90476A; /* Cor alternativa */
+  --first-color-light: #42B4A3; /* Uma versão mais clara de #028877 */
+
+  /* Cores de texto e fundo */
+  --title-color: hsl(228, 8%, 98%); /* Mantém o branco para o título */
+  --text-color: hsl(228, 8%, 70%); /* Mantém o cinza claro para o texto */
+  --white-color: hsl(228, 8%, 98%); /* Branco para textos claros */
+  --black-color: hsl(228, 6%, 4%); /* Mantém o preto para textos escuros */
+  
+  /* Novo fundo escuro */
+  --body-color: #000523; /* Fundo principal */
+  --container-color: #000523; /* Fundo dos containers também */
+  
+  /* Sombras e gradientes */
+  --shadow-img: 0 0 48px rgba(144, 71, 106, 0.4); /* Sombra ajustada para corresponder ao roxo */
+  --gradient-card: linear-gradient(180deg, #000523, #028877); /* Gradiente dos cards */
+
+  /* Tipografia */
+  --body-font: "Montserrat", sans-serif;
+  --biggest-font-size: 2.25rem;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /* Font weight */
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /* Z-index */
+  --z-tooltip: 10;
+  --z-fixed: 100;
+
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --biggest-font-size: 4.25rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+h1, h2, h3, h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1200px; /* Limita o conteúdo a 1200px de largura */
+  margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+  padding: 0 1rem; /* Espaçamento interno para dar "respiro" nas laterais */
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.section {
+  padding-block: 5rem 1rem;
+}
+
+.section__title {
+  font-size: var(--h1-font-size);
+  font-weight: var(--font-bold);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.main {
+  overflow: hidden;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  z-index: var(--z-fixed);
+}
+
+.nav {
+  position: relative;
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo,
+.nav__close,
+.nav__toggle,
+.nav__actions {
+  display: flex;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+.nav__logo {
+  font-weight: var(--font-semi-bold);
+  column-gap: .25rem;
+  align-items: center;
+}
+
+.nav__logo i {
+  color: var(--first-color);
+  font-size: 1.25rem;
+  font-weight: initial;
+}
+
+.nav__actions {
+  font-size: 1.25rem;
+  column-gap: .5rem;
+  align-items: center;
+}
+
+@media screen and (max-width: 1150px) {
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: hsla(228, 24%, 6%, .2);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    width: 80%;
+    height: 100%;
+    padding: 6rem 3rem 0;
+    transition: right .4s;
+  }
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+}
+
+.nav__link {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+  transition: color .4s;
+}
+
+.nav__link:hover {
+  color: var(--first-color);
+}
+
+.nav__close {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.5rem;
+  font-size: 1.25rem;
+}
+
+/* Show menu */
+.show-menu {
+  right: 0;
+}
+
+.blur-header::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(228, 24%, 6%, .2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Active link */
+.active-link {
+  color: var(--first-color);
+}
+
+
+/*=============== HOME ===============*/
+.home__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas: uma para a imagem e outra para o texto */
+  justify-items: center; /* Centralizar o conteúdo horizontalmente */
+  align-items: center; /* Centralizar o conteúdo verticalmente */
+  text-align: left; /* Para alinhar o texto à esquerda */
+  padding-top: 2.5rem;
+  gap: 2rem;
+  min-height: 100vh; /* Garante que o container ocupe toda a altura da tela */
+}
+
+/* Imagem menor e alinhada à esquerda */
+.home__img {
+  width: 16.875rem; /* Aproximadamente 270px */
+  justify-self: center; /* Garante que a imagem fique no centro da coluna */
+  filter: drop-shadow(var(--shadow-img));
+}
+
+/* Título, texto e botões à direita */
+.home__data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centralizar verticalmente o texto */
+  text-align: left; /* Alinhar o texto à esquerda */
+}
+
+.home__title {
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: 1rem;
+}
+
+.home__title span {
+  color: var(--first-color);
+}
+
+.home__description {
+  margin-bottom: 3rem;
+}
+
+.home__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start; /* Botões alinhados à esquerda */
+}
+
+/*=============== BOTÃO ===============*/
+.button {
+  background-color: var(--white-color);
+  color: var(--black-color);
+  font-weight: var(--font-bold);
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.button span {
+  background-color: var(--first-color);
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.4s;
+}
+
+.button:hover span {
+  transform: translateX(0.15rem) rotate(-30deg);
+}
+
+.button__link {
+  color: var(--white-color);
+  font-weight: var(--font-bold);
+  text-decoration: underline;
+  transition: color 0.4s;
+}
+
+.button__link:hover {
+  color: var(--first-color);
+}
+
+/*=============== SEÇÃO NOVAS FUNCIONALIDADES (CARDS) ===============*/
+.new__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); /* Cards adaptáveis */
+  gap: 2rem;
+  justify-items: center;
+}
+
+.new__card {
+  width: var(--card-width);
+  padding: 13rem 0.75rem 1.5rem;
+  border-radius: 1.5rem;
+  background: var(--container-color);
+  box-shadow: var(--shadow-img);
+  text-align: center;
+  position: relative;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.new__img {
+  position: absolute;
+  top: -7.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 11.25rem; /* Aproximadamente 180px */
+  transition: transform 0.4s;
+}
+
+.new__title {
+  font-size: var(--h2-font-size);
+  margin-top: 1.5rem;
+  font-weight: var(--font-semi-bold);
+}
+
+.new__card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.new__card:hover .new__img {
+  transform: translate(-50%, -0.5rem);
+}
+
+/*=============== SEÇÃO CARTAO DE CREDITO ANIMADO (CARDS) ===============*/
+
+.promo-section {
+  display: flex;
+  justify-content: center; /* Centraliza o cartão horizontalmente */
+  margin-bottom: 4rem; /* Espaço inferior para a próxima seção */
+  padding: 1rem; /* Espaço extra para garantir responsividade */
+}
+
+/* Define a perspectiva para o efeito 3D */
+main {
+  perspective: 1000px; /* Dá uma sensação de profundidade */
+}
+
+/* Container para o cartão e o texto promocional */
+.card-container {
+  position: relative;
+  font-size: 1rem; /* Tamanho de fonte base relativo para responsividade */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estiliza o container do cartão */
+.card {
+  width: 12.5rem; /* Aproximadamente 200px */
+  height: 22.8125rem; /* Aproximadamente 365px */
+  position: relative; /* Necessário para aplicar a animação */
+  background-color: #10181E; /* Fundo branco para o cartão */
+  border-radius: .5rem; /* Borda arredondada proporcional */
+  box-shadow: var(--shadow-img); /* Aplicando sombra ao cartão */
+  overflow: hidden;
+  transition: transform 0.4s, box-shadow 0.4s;
+  animation: tilt 6s ease-in-out infinite; /* Animação contínua de inclinação */
+}
+
+/* Ajusta a imagem para se encaixar corretamente no container */
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.5rem;
+}
+
+/* Texto promocional */
+.promo-text {
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+  color: yellow;
+  text-align: right;
+  font-family: Arial, sans-serif;
+  font-size: 1.25rem; /* Tamanho da fonte relativo */
+  z-index: 1;
+  opacity: 1;
+  animation: blink 4s infinite;
+}
+
+/* Estilo dos preços */
+.original-price {
+  text-decoration: line-through;
+  color: yellow;
+  font-size: 1.125rem; /* Aproximadamente 18px */
+}
+
+.discount-price {
+  color: yellow;
+  font-size: 1.25rem; /* Aproximadamente 20px */
+  font-weight: bold;
+}
+
+/* Animação de inclinação */
+@keyframes tilt {
+  0%, 100% {
+    transform: rotateY(-20deg) rotateX(5deg) rotate(10deg);
+  }
+  50% {
+    transform: rotateY(20deg) rotateX(5deg) rotate(10deg);
+  }
+}
+
+/* Animação para piscar o texto promocional */
+@keyframes blink {
+  0%, 95% {
+    opacity: 1;
+  }
+  96%, 100% {
+    opacity: 0;
+  }
+}
+
+/*=============== SEÇÃO COMPATIBILIDADE (CARDS) ===============*/
+.shop__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr)); /* Três colunas responsivas */
+  gap: 2rem;
+  justify-items: center;
+}
+
+.shop__card {
+  width: var(--card-width);
+  background: var(--gradient-card);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  position: relative;
+  transition: transform 0.4s;
+  box-shadow: var(--shadow-img);
+}
+
+.shop__logo {
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 7.5rem; /* Aproximadamente 120px */
+}
+
+.shop__img {
+  margin-top: 5rem;
+  width: 100%;
+}
+
+.shop__card:hover .shop__img,
+.shop__card:hover .shop__logo {
+  transform: translateY(-0.5rem);
+}
+
+/*=============== ACESSO AO CONTEÚDO COMPLETO ===============*/
+.access__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas: uma para o texto e outra para a imagem */
+  gap: 2rem;
+  align-items: center;
+}
+
+.access__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.access__list {
+  list-style: none;
+}
+
+.access__item {
+  font-size: var(--normal-font-size);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.yl {
+  font-size: var(--biggest-font-size);
+  color: #F2C500;
+}
+
+.access__item i {
+  color: var(--first-color);
+  margin-right: 0.5rem;
+}
+
+.access__img-container {
+  position: relative;
+  text-align: center;
+}
+
+.access__notebook {
+  max-width: 100%;
+  height: auto;
+}
+
+.access__screen {
+  position: absolute;
+  top: 10%;
+  left: 13%;
+  width: 75%;
+  height: 65%;
+}
+
+.access__screen-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/*=============== SCROLL BAR ===============*/
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: hsl(228, 40%, 15%);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsl(225, 4%, 25%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(228, 4%, 35%);
+}
+
+/*=============== SCROLL UP ===============*/
+.scrollup {
+  position: fixed;
+  right: 1rem;
+  bottom: -50%;
+  background-color: var(--container-color);
+  color: var(--title-color);
+  box-shadow: 0 12px 24px hsla(228, 48%, 4%, .5);
+  display: inline-flex;
+  padding: 6px;
+  font-size: 1.25rem;
+  z-index: var(--z-tooltip);
+  transition: bottom .4s, transform .4s;
+}
+
+.scrollup:hover {
+  transform: translateY(-.5rem);
+}
+
+.show-scroll {
+  bottom: 3rem;
+}
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: 7rem 2rem;
+  }
+
+  .section__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+
+  .nav__logo i {
+    font-size: 1.5rem;
+  }
+
+  .nav__menu {
+    width: initial;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    column-gap: 3.5rem;
+  }
+
+  .nav__actions {
+    font-size: 1.5rem;
+    column-gap: 1rem;
+  }
+}
+/*=============== BREAKPOINTS ===============*/
+@media screen and (max-width: 320px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .home__title {
+    font-size: 2rem;
+  }
+
+  .home__buttons {
+    flex-direction: column;
+    row-gap: 1.5rem;
+  }
+
+  .shop__container {
+    grid-template-columns: 1fr; /* Coluna única */
+    justify-content: center;
+  }
+
+}
+
+@media screen and (max-width: 576px) {
+  .home__container,
+  .new__container
+  {
+    grid-template-columns: 1fr; /* Coluna única para manter a responsividade */
+    justify-content: center;
+  }
+
+  .shop__container {
+    grid-template-columns: repeat(2, 1fr); /* Duas colunas para se ajustar melhor */
+    justify-content: center;
+  }
+
+ 
+}
+
+@media screen and (max-width: 768px) {
+  .nav__menu {
+    width: 50%; /* Menu ocupa 50% da tela */
+  }
+
+  .new__content {
+    grid-template-columns: 1fr; /* Layout em coluna única */
+    column-gap: 2rem;
+  }
+
+  .new__card:nth-child(even) {
+    transform: translateY(0); /* Remove a diferença de altura */
+  }
+
+  .shop__container {
+    grid-template-columns: repeat(2, 1fr); /* Ajusta para 2 colunas em telas médias */
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .container {
+    margin-inline: auto;
+  }
+
+  .section {
+    padding-block: 7rem 2rem;
+  }
+
+  .section__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 2rem);
+  }
+
+  .nav__toggle,
+  .nav__close {
+    display: none;
+  }
+
+  .nav__logo i {
+    font-size: 1.5rem;
+  }
+
+  .nav__menu {
+    width: initial;
+  }
+
+  .nav__list {
+    flex-direction: row;
+    column-gap: 3.5rem;
+  }
+
+  .nav__actions {
+    font-size: 1.5rem;
+    column-gap: 1rem;
+  }
+
+  .home__container {
+    grid-template-columns: 480px 535px;
+    align-items: center;
+    column-gap: 4rem;
+    padding-top: 4rem;
+  }
+
+  .home__img {
+    width: 480px;
+  }
+
+  .home.data {
+    text-align: initial;
+  }
+
+  .home__description {
+    margin-bottom: 4.5rem;
+  }
+
+  .home__buttons {
+    justify-content: initial;
+    column-gap: 1.5rem;
+  }
+
+  .new__container {
+    grid-template-columns: 412px 490px;
+    align-items: center;
+    column-gap: 7.5rem;
+  }
+
+  .new__data,
+  .new__data .section__title {
+    text-align: initial;
+  }
+
+  .new__content {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr); /* Três colunas */
+        gap: 4rem !important; /* Espaçamento entre os cards */
+        justify-items: center; /* Centraliza os itens dentro da grid */
+    }
+
+    /* Configura o layout de cada card */
+  .new__card {
+        display: flex !important;
+        flex-direction: column; /* Deixe os itens do card empilhados verticalmente */
+        align-items: center !important;
+        text-align: center;
+        gap: 2rem !important; /* Espaço entre a imagem e o texto */
+    }
+
+    /* Ajuste das imagens */
+    .new__img {
+        width: 200px !important; /* Tamanho da imagem */
+        height: auto !important;
+        z-index:0;
+    }
+
+    /* Estilo dos textos */
+  .new__title {
+        font-size: var(--h2-font-size) !important;
+        color: var(--white-color) !important;
+        text-align: center; /* Centralizar o texto */
+        z-index:1;
+    }
+
+
+  .shop__container {
+    grid-template-columns: repeat(3, 240px);
+    gap: 8.5rem 4rem;
+    padding-top: 7.5rem;
+    justify-content: center;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .shop__card {
+    padding: 10.5rem 1.5rem 2rem;
+    border-radius: 1.5rem;
+  }
+
+  .shop__img {
+    width: 210px;
+    top: -5.5rem;
+  }
+
+  .shop__title {
+    font-size: var(--h3-font-size);
+  }
+
+  .shop__price {
+    font-size: var(--h2-font-size);
+  }
+
+  .shop__button {
+    right: 1.5rem;
+    bottom: 2rem;
+    font-size: 1.5rem;
+  }
+
+
+  .scrollup {
+    right: 3rem;
+  }
+
+  /* Novos ajustes adicionados */
+  .shop__container {
+    grid-template-columns: repeat(3, 240px); /* 3 colunas em telas grandes */
+    gap: 8.5rem 4rem;
+    justify-content: center;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .shop__card {
+    padding: 10.5rem 1.5rem 2rem;
+  }
+}

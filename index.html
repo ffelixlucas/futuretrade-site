@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuturePRO</title>
+
+    <!-- REMIXICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
+
+    <!-- CSS -->
+    
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/nav.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/modal.css">
+    <!-- SDK MERCADO PAGO-->    
+        <script src="https://sdk.mercadopago.com/js/v2"></script>    
+
+    <!-- SWIPER CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo"><i class="ri-pie-chart-fill"></i>FuturePRO</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Início</a></li>
+                    <li class="nav__item"><a href="#news" class="nav__link">Novidades</a></li>
+                    <li class="nav__item"><a href="#promo" class="nav__link">Comprar</a></li>
+                    <li class="nav__item"><a href="#shop" class="nav__link">Compatibilidade</a></li>
+                    <li class="nav__item"><a href="#access" class="nav__link">Conteudos</a></li>
+                    
+                </ul>
+                <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
+            </div>
+            <div class="nav__actions">
+                <i class="ri-user-line"></i>
+                <i class="ri-shopping-cart-line"></i>
+                <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- PRINCIPAL -->
+    <main class="main">
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <img src="img/graficopizza.png" alt="imagem" class="home__img">
+                <div class="home__data">
+                    <h1 class="home__title">AS MELHORES  <span>FERRAMENTAS</span> <br>PARA  DAY TRADE</h1>                    
+                    <p class="home__description">Desenvolvemos soluções financeiras inovadoras para traders.</p>
+                    <div class="home__buttons">
+                        <a href="#" class="button"><span><i class="ri-arrow-right-line"></i></span>COMPRAR AGORA</a>
+                        <a href="#" class="button__link">MAIS DETALHES</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-- NOVIDADES -->
+        <section class="new section" id="news">            
+            <div class="new__container container grid">
+                <div class="new__data">
+                    <h2 class="section__title highlight">SOLUÇÕES QUE TRANSFORMAM DECISÕES EM <span>RESULTADOS!</span></h2>
+                    <p class="new__description">Nossas ferramentas foram projetadas<br> para tornar suas decisões mais rápidas,<br> inteligentes e eficazes.</p>
+                </div>
+                
+                <div class="new__content grid">    
+                    <article class="new__card">
+                        <img src="img/adesivo.png" alt="Automação de estratégia" class="new__img">
+                        <h2 class="new__title">Automação de Estratégia</h2>
+                    </article>
+                    
+                    <article class="new__card">
+                        <img src="img/celular.png" alt="Sala ao vivo" class="new__img">
+                        <h2 class="new__title">Sala ao vivo</h2>
+                    </article>
+                    
+                    <article class="new__card">
+                        <img src="img/notebook.png" alt="Indicadores FuturePRO" class="new__img">
+                        <h2 class="new__title">Indicadores FuturePRO!</h2>
+                    </article>
+                </div>
+            </div>
+        </section>
+<!-- Seção Promocional -->
+<section class="promo-section section" id="promo">
+    <div class="promo__container container grid">
+      <!-- Bloco do Cartão e Preço -->
+      <div class="promo__card-block">
+        <div class="promo__animation">
+          <img src="img/FuturePRO - 2.png" alt="Credit Card" class="promo-card__img card-image">
+        </div>
+        <div class="promo-card__text">
+          <span class="promo-card__original-price">De R$899</span>
+          <br>
+          <span class="promo-card__discount-price">Por Apenas R$249</span>
+        </div>
+      </div>
+  
+      <!-- Texto de Chamada de Atenção -->
+      <div class="promo__text">
+        <h1 class="promo-title">APROVEITE A MELHOR <br>FERRAMENTA<br> PARA DAY TRADE!</h1>
+        <p class="promo-description">Nosso indicador foi desenvolvido para ajudar traders<br> a tomar decisões rápidas e inteligentes. Não perca esta oportunidade de transformar suas operações.</p>
+      </div>
+    </div>
+  </section>
+  
+  
+   
+  
+
+        <!-- Compatibilidade -->
+<section class="shop section" id="shop">
+    <h2 class="section__title highlight">COMPATIBILIDADE GARANTIDA</h2>
+<p class="shop__description">Nossos indicadores se integram perfeitamente às plataformas líderes, proporcionando mais agilidade e precisão nas suas operações.</p>
+
+    <div class="shop__container container grid">
+        
+        <article class="shop__card">
+            <!-- Adicionando a logo acima do notebook -->
+            <img src="img/profittxt.png" alt="Logo Profit" class="shop__logo">
+            <img src="img/profit.png" alt="Profit" class="shop__img">            
+        </article>
+
+        <article class="shop__card">
+            <img src="img/vectortxt.png" alt="Logo Vector" class="shop__logo">
+            <img src="img/vector.png" alt="Vector" class="shop__img">            
+        </article>
+
+        <article class="shop__card">
+            <img src="img/blackarrowtxt.png" alt="Logo BlackArow" class="shop__logo">
+            <img src="img/blackarrow.png" alt="BlackArow" class="shop__img">            
+        </article>
+
+    </div>
+</section>
+
+        <!-- Acesso ao Conteúdo Completo -->
+<section class="acess section" id="acess">
+    <div class="acess__container container grid">
+        <img src="img/graficopizza.png" alt="imagem" class="acess__img">
+        <!-- Lado Esquerdo: Lista de Itens -->
+        <div class="acess__data">
+            <h2 class="acess__title ">ACESSO AO CONTEUDO COMPLETO!</h2>
+            <ul class="acess__description">
+                <li class="acess__item">
+                    <i class="ri-checkbox-fill"></i> Conteúdo Completo
+                </li>
+                <li class="acess__item">
+                    <i class="ri-checkbox-fill"></i> Todos os Indicadores
+                </li>
+                <li class="acess__item">
+                    <i class="ri-checkbox-fill"></i> Vídeos de Apoio
+                </li>
+                <li class="acess__item">
+                    <i class="ri-checkbox-fill"></i> Atualizações
+                </li>
+                <li class="acess__item">
+                    <i class="ri-checkbox-fill"></i> Grupo Telegram Suporte
+                </li>
+            </ul>
+        </div>
+</section>
+<!-- Formulário de Checkout -->
+<form id="form-checkout">
+    <div id="form-checkout__cardNumber" class="mpago"></div>
+    <div id="form-checkout__expirationDate" class="mpago"></div>
+    <div id="form-checkout__securityCode" class="mpago"></div>
+    <input type="text" id="form-checkout__cardholderName" placeholder="Nome no cartão" />
+    <select id="form-checkout__issuer"></select>
+    <select id="form-checkout__installments"></select>
+    <select id="form-checkout__identificationType"></select>
+    <input type="text" id="form-checkout__identificationNumber" placeholder="Número de documento" />
+    <input type="email" id="form-checkout__cardholderEmail" placeholder="E-mail" />
+    <button type="submit" id="form-checkout__submit">Pagar</button>
+    <progress value="0" class="progress-bar">Carregando...</progress>
+  </form>
+<!-- SCROLL UP -->
+<a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>
+
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/scrollreveal.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/mpago.js"></script>
+</body>
+</html>
