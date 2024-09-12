@@ -29,9 +29,9 @@
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#home" class="nav__link active-link">Início</a></li>
                     <li class="nav__item"><a href="#news" class="nav__link">Novidades</a></li>
-                    <li class="nav__item"><a href="#promo" class="nav__link">Comprar</a></li>
+                    <li class="nav__item"><a href="#buy" class="nav__link">Comprar</a></li>
                     <li class="nav__item"><a href="#shop" class="nav__link">Compatibilidade</a></li>
-                    <li class="nav__item"><a href="#access" class="nav__link">Conteudos</a></li>
+                    <li class="nav__item"><a href="#acess" class="nav__link">Conteudos</a></li>
                     
                 </ul>
                 <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
@@ -54,7 +54,9 @@
                     <h1 class="home__title">AS MELHORES  <span>FERRAMENTAS</span> <br>PARA  DAY TRADE</h1>                    
                     <p class="home__description">Desenvolvemos soluções financeiras inovadoras para traders.</p>
                     <div class="home__buttons">
-                        <a href="#" class="button"><span><i class="ri-arrow-right-line"></i></span>COMPRAR AGORA</a>
+                        <a href="#buy" class="button"><span><i class="ri-arrow-right-line"></i></span>COMPRAR AGORA</a>
+
+
                         <a href="#" class="button__link">MAIS DETALHES</a>
                     </div>
                 </div>
@@ -67,50 +69,67 @@
             <div class="new__container container grid">
                 <div class="new__data">
                     <h2 class="section__title highlight">SOLUÇÕES QUE TRANSFORMAM DECISÕES EM <span>RESULTADOS!</span></h2>
-                    <p class="new__description">Nossas ferramentas foram projetadas<br> para tornar suas decisões mais rápidas,<br> inteligentes e eficazes.</p>
+                    <p class="new__description">Nossas ferramentas foram projetadas para tornar suas decisões mais rápidas, inteligentes e eficazes.</p>
                 </div>
                 
                 <div class="new__content grid">    
                     <article class="new__card">
                         <img src="img/adesivo.png" alt="Automação de estratégia" class="new__img">
                         <h2 class="new__title">Automação de Estratégia</h2>
-                    </article>
-                    
-                    <article class="new__card">
+                        <p class="new__description">Nossos indicadores acompanham regras de automação que podem ser aplicadas diretamente no automatizador do Profit.</p>
+                      </article>
+                      
+                      <article class="new__card">
                         <img src="img/celular.png" alt="Sala ao vivo" class="new__img">
                         <h2 class="new__title">Sala ao vivo</h2>
-                    </article>
-                    
-                    <article class="new__card">
+                        <p class="new__description">Preço especial e exclusivo para membros que possuem o indicador.</p>
+                      </article>
+                      
+                      <article class="new__card">
                         <img src="img/notebook.png" alt="Indicadores FuturePRO" class="new__img">
                         <h2 class="new__title">Indicadores FuturePRO!</h2>
-                    </article>
+                        <p class="new__description">Máximo desempenho nas tomadas de decisões.</p>
+                      </article>
                 </div>
             </div>
         </section>
-<!-- Seção Promocional -->
-<section class="promo-section section" id="promo">
+<!-- PAGAMENTO -->
+<section class="promo-section section" id="buy">
+    <!-- Título centralizado no topo da seção -->
+    <h1 class="promo-section__title">MAXIMIZE SEUS RESULTADOS!</h1>
+    
     <div class="promo__container container grid">
-      <!-- Bloco do Cartão e Preço -->
-      <div class="promo__card-block">
-        <div class="promo__animation">
-          <img src="img/FuturePRO - 2.png" alt="Credit Card" class="promo-card__img card-image">
+        <!-- Bloco do Cartão e Preço -->
+        <div class="promo__card-block">
+            <div class="promo__animation">
+                <img src="img/FuturePRO - 2.png" alt="Credit Card" class="promo-card__img card-image">
+            </div>
+            <div class="promo-card__text">
+                <span class="promo-card__original-price">De R$899</span>
+                <br>
+                <span class="promo-card__discount-price">Por Apenas R$249<br> ou 299 no cartão de credito</span>
+            </div>
         </div>
-        <div class="promo-card__text">
-          <span class="promo-card__original-price">De R$899</span>
-          <br>
-          <span class="promo-card__discount-price">Por Apenas R$249</span>
+
+        <!-- Texto e Botões de Pagamento -->
+        <div class="promo__text" id="promo">
+            <h1 class="promo-title">APROVEITE A MELHOR <br>FERRAMENTA<br> PARA DAY TRADE!</h1>
+            <p class="promo__description">Nossos indicadores foram desenvolvidos para ajudar traders a tomar decisões rápidas e inteligentes. Não perca esta oportunidade de transformar suas operações.</p>
+
+            <div class="promo__buttons">
+                <a href="#" class="button" id="comprarAgoraPix" onclick="abrirPopuppix()">
+                    <span><i class="ri-money-dollar-circle-line"></i></i></span>PIX</a> <!-- Ícone substituído -->
+                
+                <a href="#" class="button" id="comprarAgoraCartao" onclick="abrirPopupcartao()">
+                    <span><i class="ri-bank-card-line"></i></span>Cartão
+                </a>
+            </div>
+            
+            <h2 class="promo__description">PAGUE 249,00 NO PIX OU 299 NO CARTÃO EM ATÉ 12x</h2>
         </div>
-      </div>
-  
-      <!-- Texto de Chamada de Atenção -->
-      <div class="promo__text">
-        <h1 class="promo-title">APROVEITE A MELHOR <br>FERRAMENTA<br> PARA DAY TRADE!</h1>
-        <p class="promo-description">Nosso indicador foi desenvolvido para ajudar traders<br> a tomar decisões rápidas e inteligentes. Não perca esta oportunidade de transformar suas operações.</p>
-      </div>
     </div>
-  </section>
-  
+</section>
+
   
    
   
@@ -167,20 +186,7 @@
             </ul>
         </div>
 </section>
-<!-- Formulário de Checkout -->
-<form id="form-checkout">
-    <div id="form-checkout__cardNumber" class="mpago"></div>
-    <div id="form-checkout__expirationDate" class="mpago"></div>
-    <div id="form-checkout__securityCode" class="mpago"></div>
-    <input type="text" id="form-checkout__cardholderName" placeholder="Nome no cartão" />
-    <select id="form-checkout__issuer"></select>
-    <select id="form-checkout__installments"></select>
-    <select id="form-checkout__identificationType"></select>
-    <input type="text" id="form-checkout__identificationNumber" placeholder="Número de documento" />
-    <input type="email" id="form-checkout__cardholderEmail" placeholder="E-mail" />
-    <button type="submit" id="form-checkout__submit">Pagar</button>
-    <progress value="0" class="progress-bar">Carregando...</progress>
-  </form>
+
 <!-- SCROLL UP -->
 <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>
 
@@ -189,6 +195,6 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/scrollreveal.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/mpago.js"></script>
+    
 </body>
 </html>

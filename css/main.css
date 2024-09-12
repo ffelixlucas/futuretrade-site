@@ -65,7 +65,9 @@ img {
 .home__container {  
   padding-top: 2.5rem;
   row-gap: 2rem;
+  
 }
+
 
 .home__img {
   width: 370px;
@@ -124,8 +126,9 @@ img {
 }
 
 .button:hover span {
-  transform: translateX(0.15rem) rotate(-30deg);
+  transform: translateX(0.15rem) scale(1.1); /* Aumenta o ícone em 10% */
 }
+
 
 .button__link {
   color: var(--white-color);
@@ -137,7 +140,8 @@ img {
 .button__link:hover {
   color: var(--first-color);
 }
-/*===================NEWS=========================*/
+
+/*============================ NEW ===========================*/
 .new__data{
   text-align: center;
   }
@@ -146,22 +150,31 @@ img {
 
   display: grid;
   row-gap: 7.5rem;
+  max-width: 800px;
  } 
 
- .ew__conten{
+ .new__conten{
   row-gap: 6rem;
  }
  .new__card{
   position: relative;
-  width: 200px;
+  width: 250px;
   background: var(--gradient-card);
   padding: 10rem .75rem 4.5rem .1rem;
   border: 2px solid var(--first-color-light);
   border-radius: 1.5rem;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  height: 200px; /* Define a altura inicial */
  }
+
+ .new__card:hover {
+  height: 400px; /* Expande o card ao passar o mouse */
+}
+
 .new__img{
   position: absolute;
-  top: -0.5rem;
+  top: 0.4rem;
   left: 0;
   right: 0;
   width: 180px;
@@ -169,7 +182,20 @@ img {
   transition: transform .4s;
   z-index: -1;
 }
+
+.new__description {
+  opacity: 0; /* Torna o texto invisível inicialmente */
+  transition: opacity 0.3s ease;
+  color: yellow;
+  text-align: center;
+}
+
+.new__card:hover , .new__card:hover .new__description {
+  opacity: 1; /* Mostra o texto quando o mouse passa por cima */
+}
+
 .new__title{
+  color: #020523;
   font-size: var(--h2-font-size);  
   text-align: center;
   z-index: 1;
@@ -187,17 +213,45 @@ img {
   rotate: 5deg;
 
 }
-.new__card:hover .new__img{
+.new__card:hover .new__img, .new__img-notebook {
   transform: translateY(-.5rem);
 }
 
+/* Específico para a imagem do notebook */
+.new__card:nth-child(3) .new__img {
+  top: 1.5rem; /* Ajuste a posição da imagem do notebook aqui */
+}
 
 /*=============== PROMO SECTION ===============*/
-.promo-section {
-  padding: 2.5rem 0;
+.promo__container{
+  padding-top: 10.5rem;
+  row-gap: 2rem;
+}
+.promo__section {
+  padding: 1.5rem;
+}
+
+.promo-section__title {
+  font-size: 2.5rem; /* Ajuste o tamanho conforme necessário */
+  font-weight: bold;
+  text-align: center;
+  
+  color: var(--title-color); /* Mantém a consistência da cor do título */
 }
 
 /* Container do cartão e preço juntos */
+.promo__buttons a {
+  display: inline-block; /* Certifica-se de que o link se comporte como um bloco inline */
+  width: 143px; /* Define uma largura fixa */
+  text-align: initial; /* Centraliza o texto no botão */
+  padding: 0.5rem 1rem; /* Ajuste o padding conforme necessário */
+  margin-bottom: 0.5rem;
+}
+
+.promo__buttons a span {
+  display: inline-block; /* Certifica-se de que o ícone mantenha seu espaço */
+  margin-right: 0.5rem; /* Espaçamento entre o ícone e o texto */
+}
 .promo__card-block {
   display: flex;
   flex-direction: column;
@@ -232,7 +286,7 @@ img {
 .promo-card__original-price {
   text-decoration: line-through;
   color: yellow;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
 }
 
 .promo-card__discount-price {
@@ -242,9 +296,18 @@ img {
 }
 
 /* Promo text section */
-.promo__text {
-  text-align: left;
+.promo-title {  
+  margin-bottom: 1.5rem; /* Espaçamento inferior para dar "respiro" */
 }
+
+.promo__description {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem; /* Espaçamento inferior entre os blocos de texto */
+
+}
+
+
+
 
 /* Animações */
 @keyframes tilt {
@@ -473,8 +536,13 @@ img {
     column-gap: 4rem;
   }
 
+
   .promo__card-block {
     margin-left: 14rem; /* Empurra o bloco do cartão para a direita */
+  }
+
+  .promo__buttons {
+  column-gap: 1.5rem;
   }
 
   .promo__text {
@@ -516,4 +584,87 @@ img {
   text-align: center;
 }
 
+}
+
+
+/* Estilos do Pop-up */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo com opacidade */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-container {
+  background-color: var(--body-color); /* Cor de fundo do seu site */
+  padding: 2rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  max-width: 90%; /* Garantir que o pop-up se ajuste em dispositivos móveis */
+  box-shadow: var(--shadow-img);
+  width: 100%;
+  max-width: 500px; /* Tamanho máximo para o pop-up */
+}
+
+.popup-title {
+  font-size: var(--h2-font-size);
+  color: var(--first-color); /* Cor predominante */
+  margin-bottom: 1rem;
+}
+
+.popup-text {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-size: var(--normal-font-size);
+}
+
+.popup-link {
+  color: var(--first-color-light);
+  text-decoration: none;
+  font-weight: var(--font-bold);
+}
+
+.popup-link:hover {
+  text-decoration: underline;
+}
+
+.popup-close {
+  background-color: var(--first-color);
+  color: var(--white-color);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: var(--normal-font-size);
+  transition: background-color 0.3s ease;
+}
+
+.popup-close:hover {
+  background-color: var(--first-color-light);
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+  .popup-container {
+      padding: 1.5rem;
+      max-width: 90%;
+  }
+
+  .popup-title {
+      font-size: var(--h3-font-size);
+  }
+
+  .popup-text {
+      font-size: var(--small-font-size);
+  }
+
+  .popup-close {
+      font-size: var(--small-font-size);
+  }
 }
