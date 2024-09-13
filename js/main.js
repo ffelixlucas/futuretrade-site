@@ -54,77 +54,78 @@ const scrollActive = () => {
         }
     });
 };
-window.addEventListener('scroll', scrollActive);
+
+/*=============== blur header ===============*/
+const blurHeader = () =>{
+    const header = document.getElementById('header')
+    // Add a class if the bottom offset is greater than 50 of the viewport
+    this.scrollY >= 50 ? header.classList.add('blur-header') 
+                       : header.classList.remove('blur-header')
+}
+window.addEventListener('scroll', blurHeader)
 
 /*============================ POP UP PAGAMENTO ==============================*/
 
-// Função para o link de pagamento via Pix
-function abrirPopuppix() {
-    const url = 'https://mpago.la/1nkHoUd'; // Link do Pix
+// Função genérica para abrir o popup
+function abrirPopup(url) {
+    // Abre o popup com a URL fornecida
     const popup = window.open(url, '_blank', 'width=800,height=800');
-
+  
+    // Verifica se o popup foi bloqueado ou não abriu
+    if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+        alert('Falha ao abrir o popup. Verifique se o navegador está bloqueando popups.');
+        return;
+    }
+  
+    // Verifica se o popup foi fechado a cada segundo
     const checkPopupClosed = setInterval(() => {
         if (popup.closed) {
-            clearInterval(checkPopupClosed);
-            exibirMensagem();
+            clearInterval(checkPopupClosed); // Para o intervalo quando o popup for fechado
+            exibirMensagem(); // Chama a função para exibir a mensagem
         }
-    }, 1000); // Verifica a cada segundo se o pop-up foi fechado
-}
-
-// Função para o link de pagamento via cartão de crédito
-function abrirPopupcartao() {
-    const url = 'https://mpago.la/2a4GBKM'; // Link do Cartão de crédito
-    const popup = window.open(url, '_blank', 'width=800,height=800');
-
-    const checkPopupClosed = setInterval(() => {
-        if (popup.closed) {
-            clearInterval(checkPopupClosed);
-            exibirMensagem();
-        }
-    }, 1000); // Verifica a cada segundo se o pop-up foi fechado
-}
-
-// Função para exibir a mensagem após o pop-up ser fechado
-function exibirMensagem() {
+    }, 1000); // Verifica a cada 1 segundo
+  }
+  
+ // Função para abrir o popup para Pix
+function abrirPopuppix(event) {
+    event.preventDefault(); // Evita que a página role para o topo
+    abrirPopup('https://mpago.la/1nkHoUd');
+  }
+  
+  // Função para abrir o popup para Cartão
+  function abrirPopupcartao(event) {
+    event.preventDefault(); // Evita que a página role para o topo
+    abrirPopup('https://mpago.la/2a4GBKM');
+  }
+  
+  // Função que exibe uma mensagem após o fechamento do popup
+  function exibirMensagem() {
     const whatsappLink = "https://wa.me/5541988919440?text=Olá%2C%20acabei%20de%20realizar%20um%20pagamento.%20Aqui%20está%20meu%20comprovante!";
     
     const popupContent = `
-        <div class="popup-overlay" id="popup-overlay">
-            <div class="popup-container">
-                <h2 class="popup-title">Realizou o pagamento?</h2>
-                <p class="popup-text">Por favor, envie o comprovante de pagamento e seu nome completo para liberação do pedido:</p>
-                <p class="popup-text">
-                    <i class="ri-whatsapp-fill" style="color: #25D366;"></i> 
-                    <a href="${whatsappLink}" target="_blank" class="popup-link">Clique aqui para enviar pelo WhatsApp</a>
-                </p>
-                <p class="popup-text">
-                    <i class="ri-phone-fill" style="color: #028877;"></i> 
-                    Número: <strong>(41) 98891-9440</strong>
-                </p>
-                <button class="popup-close" id="popup-close">Fechar</button>
-            </div>
-        </div>
+      <div class="popup-overlay" id="popup-overlay">
+          <div class="popup-container">
+              <h2 class="popup-title">Realizou o pagamento?</h2>
+              <p class="popup-text">Por favor, envie o comprovante de pagamento e seu nome completo para liberação do pedido:</p>
+              <p class="popup-text">
+                  <i class="ri-whatsapp-fill" style="color: #25D366;"></i> 
+                  <a href="${whatsappLink}" target="_blank" class="popup-link">Clique aqui para enviar pelo WhatsApp</a>
+              </p>
+              <p class="popup-text">
+                  <i class="ri-phone-fill" style="color: #028877;"></i> 
+                  Número: <strong>(41) 98891-9440</strong>
+              </p>
+              <button class="popup-close" id="popup-close">Fechar</button>
+          </div>
+      </div>
     `;
     
+    // Insere o conteúdo do popup na página
     document.body.insertAdjacentHTML('beforeend', popupContent);
-
+  
+    // Função para fechar o popup quando o botão for clicado
     document.getElementById('popup-close').addEventListener('click', function() {
-        document.getElementById('popup-overlay').remove();
+        document.getElementById('popup-overlay').remove(); // Remove o popup da tela
     });
-}
+  }
 
-// Seleciona todos os cards
-const cards = document.querySelectorAll('.new__card');
-
-// Para cada card, adiciona um evento de mouseover e mouseout
-cards.forEach(card => {
-    card.addEventListener('mouseover', () => {
-        // Ao passar o mouse, adiciona a classe que mostra o texto e expande o card
-        card.classList.add('expanded');
-    });
-
-    card.addEventListener('mouseout', () => {
-        // Ao remover o mouse, remove a classe para retornar ao estado normal
-        card.classList.remove('expanded');
-    });
-});

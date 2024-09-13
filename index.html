@@ -3,19 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FuturePRO</title>
+    <meta name="description" content="FuturePRO oferece ferramentas inovadoras para traders com foco em day trade. Maximiza suas decisões e aumenta seus lucros com nossas soluções." />
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="FuturePRO - Ferramentas para Traders">
+    <meta property="og:image" content="https://www.seusite.com/img/LOGO.PNG"> <!-- URL completa da imagem -->
+    <meta property="og:url" content="https://www.seusite.com"> <!-- URL completa do site -->
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="A melhor plataforma para traders. Otimize suas decisões com FuturePRO.">
+
+    <title>FuturePRO - Ferramentas de Day Trade e Análise para Traders</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/LOGO.ico" type="image/x-icon">
 
     <!-- REMIXICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
 
     <!-- CSS -->
-    
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/nav.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/modal.css">
-    <!-- SDK MERCADO PAGO-->    
-        <script src="https://sdk.mercadopago.com/js/v2"></script>    
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/modal.css">
 
     <!-- SWIPER CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -24,177 +33,152 @@
     <!-- CABEÇALHO -->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="#" class="nav__logo"><i class="ri-pie-chart-fill"></i>FuturePRO</a>
+            <a href="#" class="nav__logo">
+                <img src="img/LOGO.ico" alt="Logo do FuturePRO" style="height: 30px; width: auto;">
+                FuturePRO
+            </a>
+            
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item"><a href="#home" class="nav__link active-link">Início</a></li>
                     <li class="nav__item"><a href="#news" class="nav__link">Novidades</a></li>
                     <li class="nav__item"><a href="#buy" class="nav__link">Comprar</a></li>
                     <li class="nav__item"><a href="#shop" class="nav__link">Compatibilidade</a></li>
-                    <li class="nav__item"><a href="#acess" class="nav__link">Conteudos</a></li>
-                    
+                    <li class="nav__item"><a href="#acess" class="nav__link">Conteúdos</a></li>
                 </ul>
                 <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
             </div>
             <div class="nav__actions">
-                <i class="ri-user-line"></i>
-                <i class="ri-shopping-cart-line"></i>
-                <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+                
+                </i>
+                <div  class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
             </div>
         </nav>
     </header>
-
 
     <!-- PRINCIPAL -->
     <main class="main">
         <section class="home section" id="home">
             <div class="home__container container grid">
-                <img src="img/graficopizza.png" alt="imagem" class="home__img">
+                <img src="img/graficopizza.png" alt="Gráfico de pizza mostrando resultados de trading" class="home__img">
                 <div class="home__data">
-                    <h1 class="home__title">AS MELHORES  <span>FERRAMENTAS</span> <br>PARA  DAY TRADE</h1>                    
+                    <h1 class="home__title">AS MELHORES <span>FERRAMENTAS</span> <br>PARA DAY TRADE</h1>                    
                     <p class="home__description">Desenvolvemos soluções financeiras inovadoras para traders.</p>
                     <div class="home__buttons">
                         <a href="#buy" class="button"><span><i class="ri-arrow-right-line"></i></span>COMPRAR AGORA</a>
-
-
-                        <a href="#" class="button__link">MAIS DETALHES</a>
+                        <a href="#acess" class="button__link">MAIS DETALHES</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-        <!-- NOVIDADES -->
-        <section class="new section" id="news">            
-            <div class="new__container container grid">
-                <div class="new__data">
-                    <h2 class="section__title highlight">SOLUÇÕES QUE TRANSFORMAM DECISÕES EM <span>RESULTADOS!</span></h2>
-                    <p class="new__description">Nossas ferramentas foram projetadas para tornar suas decisões mais rápidas, inteligentes e eficazes.</p>
-                </div>
-                
-                <div class="new__content grid">    
-                    <article class="new__card">
-                        <img src="img/adesivo.png" alt="Automação de estratégia" class="new__img">
-                        <h2 class="new__title">Automação de Estratégia</h2>
-                        <p class="new__description">Nossos indicadores acompanham regras de automação que podem ser aplicadas diretamente no automatizador do Profit.</p>
-                      </article>
-                      
-                      <article class="new__card">
-                        <img src="img/celular.png" alt="Sala ao vivo" class="new__img">
-                        <h2 class="new__title">Sala ao vivo</h2>
-                        <p class="new__description">Preço especial e exclusivo para membros que possuem o indicador.</p>
-                      </article>
-                      
-                      <article class="new__card">
-                        <img src="img/notebook.png" alt="Indicadores FuturePRO" class="new__img">
-                        <h2 class="new__title">Indicadores FuturePRO!</h2>
-                        <p class="new__description">Máximo desempenho nas tomadas de decisões.</p>
-                      </article>
-                </div>
+    <!-- NOVIDADES -->
+    <section class="new section" id="news">            
+        <div class="new__container container grid">
+            <div class="new__data">
+                <h2 class="section__title highlight">SOLUÇÕES QUE TRANSFORMAM DECISÕES EM <span>RESULTADOS!</span></h2>
+                <p class="new__description">Nossas ferramentas foram projetadas para tornar suas decisões mais rápidas, inteligentes e eficazes.</p>
             </div>
-        </section>
-<!-- PAGAMENTO -->
-<section class="promo-section section" id="buy">
-    <!-- Título centralizado no topo da seção -->
-    <h1 class="promo-section__title">MAXIMIZE SEUS RESULTADOS!</h1>
-    
-    <div class="promo__container container grid">
-        <!-- Bloco do Cartão e Preço -->
-        <div class="promo__card-block">
-            <div class="promo__animation">
-                <img src="img/FuturePRO - 2.png" alt="Credit Card" class="promo-card__img card-image">
-            </div>
-            <div class="promo-card__text">
-                <span class="promo-card__original-price">De R$899</span>
-                <br>
-                <span class="promo-card__discount-price">Por Apenas R$249<br> ou 299 no cartão de credito</span>
+            <div class="new__content grid">    
+                <article class="new__card">
+                    <img src="img/adesivo.png" alt="Automação de estratégia" class="new__img">
+                    <h2 class="new__title">Automação de Estratégia</h2>
+                    <p class="new__description">Nossos indicadores acompanham regras de automação que podem ser aplicadas diretamente no automatizador do Profit.</p>
+                </article>
+                <article class="new__card">
+                    <img src="img/celular.png" alt="Sala ao vivo" class="new__img">
+                    <h2 class="new__title">Sala ao Vivo</h2>
+                    <p class="new__description">Preço especial e exclusivo para membros que possuem o indicador.</p>
+                </article>
+                <article class="new__card">
+                    <img src="img/notebook.png" alt="Indicadores FuturePRO" class="new__img">
+                    <h2 class="new__title">Indicadores FuturePRO</h2>
+                    <p class="new__description">Máximo desempenho nas tomadas de decisões.</p>
+                </article>
             </div>
         </div>
+    </section>
 
-        <!-- Texto e Botões de Pagamento -->
-        <div class="promo__text" id="promo">
-            <h1 class="promo-title">APROVEITE A MELHOR <br>FERRAMENTA<br> PARA DAY TRADE!</h1>
-            <p class="promo__description">Nossos indicadores foram desenvolvidos para ajudar traders a tomar decisões rápidas e inteligentes. Não perca esta oportunidade de transformar suas operações.</p>
+    <!-- ACESSO AO CONTEÚDO COMPLETO -->
+    <section class="acess section" id="acess">
+        <div class="acess__container container grid">
+            <img src="img/acesso.png" alt="Indicadores disponíveis" class="acess__img">
+            <div class="acess__data">
+                <h2 class="acess__title">ACESSO AO CONTEÚDO COMPLETO!</h2>
+                <ul class="acess__description">
+                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Conteúdo Completo</li>
+                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Todos os Indicadores</li>
+                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Vídeos de Apoio</li>
+                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Atualizações</li>
+                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Grupo Telegram Suporte</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-            <div class="promo__buttons">
-                <a href="#" class="button" id="comprarAgoraPix" onclick="abrirPopuppix()">
-                    <span><i class="ri-money-dollar-circle-line"></i></i></span>PIX</a> <!-- Ícone substituído -->
-                
-                <a href="#" class="button" id="comprarAgoraCartao" onclick="abrirPopupcartao()">
-                    <span><i class="ri-bank-card-line"></i></span>Cartão
+    <!-- COMPATIBILIDADE -->
+    <section class="shop section" id="shop">
+        <h2 class="section__title highlight">COMPATIBILIDADE GARANTIDA</h2>
+        <p class="shop__description">Nossos indicadores se integram perfeitamente às plataformas líderes, proporcionando mais agilidade e precisão nas suas operações.</p>
+        <div class="shop__container container grid">
+            <article class="shop__card">
+                <a href="https://www.nelogica.com.br/produtos" target="_blank">
+                    <img src="img/profittxt.png" alt="Logo Profit" class="shop__logo">
+                    <img src="img/profit.png" alt="Plataforma Profit" class="shop__img">
                 </a>
+            </article>
+            <article class="shop__card">
+                <a href="https://www.vectorcrypto.com.br/pt" target="_blank">
+                    <img src="img/vectortxt.png" alt="Logo Vector" class="shop__logo">
+                    <img src="img/vector.png" alt="Plataforma Vector" class="shop__img">
+                </a>
+            </article>
+            <article class="shop__card">
+                <a href="https://www.blackarrowtrading.com/pt" target="_blank">
+                    <img src="img/blackarrowtxt.png" alt="Logo BlackArrow" class="shop__logo">
+                    <img src="img/blackarrow.png" alt="Plataforma BlackArrow" class="shop__img">
+                </a>
+            </article>
+        </div>
+    </section>
+
+    <!-- PAGAMENTO -->
+    <section class="promo-section section" id="buy">
+        <h1 class="promo-section__title">MAXIMIZE SEUS RESULTADOS!</h1>
+        <div class="promo__container container grid">
+            <div class="promo__card-block">
+                <div class="promo__animation">
+                    <img src="img/VISA-NOMOS-XP.png" alt="Cartão de crédito" class="promo-card__img card-image">
+                </div>
+                <div class="promo-card__text">
+                    <span class="promo-card__original-price">De R$899</span><br>
+                    <span class="promo-card__discount-price">Por Apenas R$249<br> ou 299 no cartão de crédito</span>
+                </div>
             </div>
-            
-            <h2 class="promo__description">PAGUE 249,00 NO PIX OU 299 NO CARTÃO EM ATÉ 12x</h2>
+            <div class="promo__text" id="promo">
+                <h1 class="promo-title">APROVEITE A MELHOR FERRAMENTA PARA DAY TRADE!</h1>
+                <p class="promo__description">Nossos indicadores foram desenvolvidos para ajudar traders a tomar decisões rápidas e inteligentes. Não perca esta oportunidade de transformar suas operações.</p>
+                <div class="promo__buttons">
+                    <a href="#" class="button" id="comprarAgoraPix" onclick="abrirPopuppix(event)"><span><i class="ri-money-dollar-circle-line"></i></span>PIX</a>
+                    <a href="#" class="button" id="comprarAgoraCartao" onclick="abrirPopupcartao(event)"><span><i class="ri-bank-card-line"></i></span>Cartão</a>
+                </div>
+                <h2 class="promo__description">PAGUE 249,00 NO PIX OU 299 NO CARTÃO EM ATÉ 12x</h2>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-  
-   
-  
+    <!-- BOTÃO WHATSAPP FIXO -->
+    <a href="https://wa.me/5541988919440?text=Olá%2C%20gostaria%20de%20mais%20informações!" class="whatsapp-button" target="_blank">
+        <i class="ri-whatsapp-fill whatsapp-icon"></i>
+    </a>
 
-        <!-- Compatibilidade -->
-<section class="shop section" id="shop">
-    <h2 class="section__title highlight">COMPATIBILIDADE GARANTIDA</h2>
-<p class="shop__description">Nossos indicadores se integram perfeitamente às plataformas líderes, proporcionando mais agilidade e precisão nas suas operações.</p>
-
-    <div class="shop__container container grid">
-        
-        <article class="shop__card">
-            <!-- Adicionando a logo acima do notebook -->
-            <img src="img/profittxt.png" alt="Logo Profit" class="shop__logo">
-            <img src="img/profit.png" alt="Profit" class="shop__img">            
-        </article>
-
-        <article class="shop__card">
-            <img src="img/vectortxt.png" alt="Logo Vector" class="shop__logo">
-            <img src="img/vector.png" alt="Vector" class="shop__img">            
-        </article>
-
-        <article class="shop__card">
-            <img src="img/blackarrowtxt.png" alt="Logo BlackArow" class="shop__logo">
-            <img src="img/blackarrow.png" alt="BlackArow" class="shop__img">            
-        </article>
-
-    </div>
-</section>
-
-        <!-- Acesso ao Conteúdo Completo -->
-<section class="acess section" id="acess">
-    <div class="acess__container container grid">
-        <img src="img/graficopizza.png" alt="imagem" class="acess__img">
-        <!-- Lado Esquerdo: Lista de Itens -->
-        <div class="acess__data">
-            <h2 class="acess__title ">ACESSO AO CONTEUDO COMPLETO!</h2>
-            <ul class="acess__description">
-                <li class="acess__item">
-                    <i class="ri-checkbox-fill"></i> Conteúdo Completo
-                </li>
-                <li class="acess__item">
-                    <i class="ri-checkbox-fill"></i> Todos os Indicadores
-                </li>
-                <li class="acess__item">
-                    <i class="ri-checkbox-fill"></i> Vídeos de Apoio
-                </li>
-                <li class="acess__item">
-                    <i class="ri-checkbox-fill"></i> Atualizações
-                </li>
-                <li class="acess__item">
-                    <i class="ri-checkbox-fill"></i> Grupo Telegram Suporte
-                </li>
-            </ul>
-        </div>
-</section>
-
-<!-- SCROLL UP -->
-<a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>
-
+    <!-- SCROLL UP -->
+    <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>
 
     <!-- SCRIPTS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/scrollreveal.min.js"></script>
     <script src="js/main.js"></script>
-    
 </body>
 </html>
