@@ -160,6 +160,11 @@ img {
 .button__link:hover {
   color: var(--first-color);
 }
+/*============================ TRADING VIEW==================*/
+.tradingview-widget-container {
+  position: relative;
+  top: 2rem;
+}
 
 /*============================ NEW ===========================*/
 .new__data{
@@ -550,6 +555,16 @@ z-index: 1;
 /*============================= BREAKPOINTS =============================*/
 
 /*DISPOSITIVOS PEQUENOS*/
+
+@media screen and (max-width: 425px){
+  /*============================ TRADING VIEW==================*/
+.tradingview-widget-container {
+  position: relative;
+  top: 3rem;
+}
+
+}
+
 
 @media screen and (max-width: 768px)  {
   .container{
