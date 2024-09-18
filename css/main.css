@@ -184,9 +184,9 @@ img {
  .new__card{
   position: relative;
   width: 300px;
-  background: var(--gradient-card);
+  /*background: var(--gradient-card);*/
   padding: 10rem .75rem 4.5rem .1rem;
-  border: 2px solid var(--first-color-light);
+  /*border: 2px solid var(--first-color-light);*/
   border-radius: 1.5rem;
   transition: all 0.4s ease;
   overflow: hidden;
@@ -202,7 +202,7 @@ img {
   top: 0.4rem;
   left: 0;
   right: 0;
-  width: 180px;
+  width: 190px;
   margin: 0 auto;
   transition: transform .4s;
   z-index: -1;
@@ -211,7 +211,7 @@ img {
 .new__description {
   opacity: 0; /* Torna o texto invisível inicialmente */
   transition: opacity 0.3s ease;
-  color: yellow;
+  color: white;
   text-align: center;
   position: relative;
   top: 3rem;
@@ -225,7 +225,7 @@ img {
   position: relative;
   top: 2.5rem;
   font-size: var(--h2-font-size);
-  color: #020523;
+  color: white;
   text-align: center;
   z-index: 1;
 }
@@ -251,7 +251,7 @@ img {
   position: relative;
   top: 4.5rem; /* Ajuste a posição conforme necessário */
   font-size: var(--h2-font-size); /* Tamanho da fonte */
-  color: #020523; /* Cor do título */
+  color: white; /* Cor do título */
   text-align: center;
   z-index: 1;
 }
@@ -260,7 +260,7 @@ img {
 .new__card:nth-child(2) .new__description {
   opacity: 0; /* Inicialmente invisível */
   transition: opacity 0.3s ease;
-  color: yellow; /* Cor da descrição */
+  color: white; /* Cor da descrição */
   text-align: center;
   padding-top: 4.5rem;
   font-size: 1rem;
@@ -292,7 +292,7 @@ img {
 position: relative;
 top: -0.5rem;
 font-size: var(--h2-font-size);
-color: #020523;
+color: white;
 text-align: center;
 z-index: 1;
 }
@@ -305,7 +305,7 @@ z-index: 1;
 .new__card:nth-child(3) .new__description {
   opacity: 0; /* Inicialmente invisível */
   transition: opacity 0.3s ease;
-  color: yellow; /* Cor da descrição */
+  color: white; /* Cor da descrição */
   text-align: center;
   padding-top: 4.5rem;
   font-size: 1rem;
@@ -371,7 +371,7 @@ z-index: 1;
 }
 
 .promo-card__text {
-  color: yellow;
+  color: white;
   font-family: Arial, sans-serif;
   font-size: 1.25rem;
   margin-top: 1.5rem;
@@ -436,10 +436,10 @@ z-index: 1;
   position: relative;
   width: 300px;
   height: 225px;
-  background: var(--gradient-card);
+  /*background: var(--gradient-card);
   padding: 9rem .75rem 1.5rem .75rem;
   border: 2px solid var(--first-color-light);
-  border-radius: 1.5rem;
+  border-radius: 1.5rem;*/
   z-index: 1;
 }
 
@@ -460,12 +460,13 @@ z-index: 1;
 
 .shop__img {
   position: absolute;
-  top: -2.5rem;
+  top: -6.5rem;
   left: 0;
   right: 0;
-  width: 160px;
+  width: 370px;
   margin: 0 auto;
   transition: transform .4s;
+  filter: drop-shadow(var(--shadow-img));
   z-index: -1;
 }
 
@@ -520,7 +521,7 @@ z-index: 1;
   align-items: center; /* Centraliza horizontalmente o bloco de itens */
   justify-content: center; /* Centraliza verticalmente o bloco de itens */
   margin-bottom: 8rem;
-  color: #F54A4A;
+  color: white;
   text-align: left; /* Alinha o texto à esquerda para melhor leitura */
   width: 100%; /* Garante que a lista ocupe a largura total */
 }

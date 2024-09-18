@@ -1,0 +1,96 @@
+/* Seção do iPhone */
+.iphone.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Garante que a altura ocupe 100% da altura da viewport */
+  width: 100vw; /* Garante que a largura ocupe 100% da largura da viewport */
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.iphone{
+  margin-bottom: 4rem;
+}
+
+/* Container de conteúdo do iPhone */
+.iphone__wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Para alinhar o título e o iPhone verticalmente */
+  text-align: center; /* Centralizar o título */
+  height: 100%; /* Garante que o wrapper ocupe toda a altura disponível */
+  transform: translateX(30px); /* Desloca o conjunto do iPhone 20px para a direita */
+  filter: drop-shadow(var(--shadow-img));
+}
+
+/* Container da moldura e vídeo */
+.iphone-container {
+  position: relative;
+  width: 400px; /* Define uma largura fixa de 400px */
+  height: auto; /* A altura será ajustada automaticamente */
+  display: block; /* Mantém como bloco para que tudo seja redimensionado proporcionalmente */
+}
+
+/* Estilo da moldura do iPhone */
+.iphone-frame {
+  position: relative;
+  width: 100%; /* A moldura ocupa toda a largura do container */
+  display: block;
+  z-index: 2; /* Garantir que a moldura fique na frente */
+  pointer-events: none; /* Impedir interação com a moldura */
+}
+
+/* Wrapper do vídeo para simular a tela do iPhone */
+.video-wrapper {
+  position: absolute;
+  top: 3%; /* Ajuste conforme necessário */
+  left: 13%; /* Ajuste conforme necessário */
+  width: 73%; /* Ajuste a largura do vídeo */
+  height: 89%; /* Ajuste a altura do vídeo */
+  overflow: hidden;
+  border-radius: 20px; /* Bordas arredondadas */
+  z-index: 1; /* O vídeo fica atrás da moldura */
+}
+
+/* Estilo do vídeo */
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* Ajusta o vídeo dentro do container */
+  border-radius: 20px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .iphone.section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Garante que a altura ocupe 100% da altura da viewport */
+    width: 90vw; /* Garante que a largura ocupe 100% da largura da viewport */
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .iphone-container {
+    width: 50vw;
+  }
+}
+
+@media (max-width: 480px) {
+
+
+  .iphone-container {
+    width: 70vw;
+  }
+
+  .video-wrapper {
+    top: 3%;
+    left: 13%;
+    width: 71%;
+    height: 89%;
+  }
+}
