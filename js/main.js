@@ -175,3 +175,21 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicializa com Pix selecionado por padrão
     handlePaymentMethod('pix');
 });
+
+
+/* SCROLL REVEAL ANIMATION */
+const sr = ScrollReveal({
+    origin: 'top',         // Direção da animação
+    distance: '80px',      // Distância percorrida na animação
+    duration: 2500,        // Duração em milissegundos
+    delay: 300,            // Atraso antes de começar
+    reset: false           // Não repetir animação ao rolar para cima
+});
+
+/* Elementos a serem revelados conforme o usuário desce a página */
+sr.reveal(`.home__title, .home__description, .home__img, 
+           .card, .card-content, .pricing-card, .iphone-container, 
+           .features-list, .compatibility__card, .compatibility__description, 
+           .section__title, video`, {
+    interval: 200  // Intervalo entre as animações de cada elemento
+});
