@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<html lang="en">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="FuturePRO oferece ferramentas inovadoras para traders com foco em day trade. Maximiza suas decisões e aumenta seus lucros com nossas soluções." />
@@ -15,7 +15,7 @@
 
     <title>FuturePRO - Ferramentas de Day Trade e Análise para Traders</title>
     <!-- Favicon -->
-    <link rel="icon" href="img/LOGO.ico" type="image/x-icon">
+    <link rel="icon" href="media/LOGO.ico" type="image/x-icon">
 
     <!-- REMIXICONS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
@@ -23,223 +23,235 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/iphone.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="stylesheet" href="css/compatibilidade.css">
+    <link rel="stylesheet" href="css/iphone.css">
+    <link rel="stylesheet" href="css/breakpoint.css">
 
     <!-- SWIPER CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
-    <!-- CABEÇALHO -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">
-                <img src="img/LOGO.ico" alt="Logo do FuturePRO" style="height: 30px; width: auto;">
-                FuturePRO
-            </a>
-            
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link active-link">Início</a></li>
-                    <li class="nav__item"><a href="#news" class="nav__link">Novidades</a></li>
-                    <li class="nav__item"><a href="#shop" class="nav__link">Compatibilidade</a></li>
-                    <li class="nav__item"><a href="#acess" class="nav__link">Conteúdos</a></li>
-                    <li class="nav__item"><a href="#buy" class="nav__link">Comprar</a></li>                    
-                    
-                </ul>
-                <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
-            </div>
-            <div class="nav__actions">
+  <header class="header" id="header">
+    <nav class="nav container">
+        <a href="#" class="nav__logo">
+            <img src="media/LOGO.ico" alt="Logo do FuturePRO" style="height: 30px; width: auto;">
+            FuturePRO
+        </a>
+        
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home" class="nav__link active-link">Início</a></li>
+                <li class="nav__item"><a href="#grafico" class="nav__link">Gráfico</a></li>
+                <li class="nav__item"><a href="#card" class="nav__link">FuturePRO</a></li>
+                <li class="nav__item"><a href="#compatibilidade" class="nav__link">Compatibilidade</a></li>
+                <li class="nav__item"><a href="#pay" class="nav__link">Comprar</a></li>                    
                 
-                </i>
-                <div  class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
-            </div>
-        </nav>
-    </header>
-<!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-    "symbols": [
-      {
-        "description": "",
-        "proName": "BMFBOVESPA:IBOV"
-      },
-      {
-        "description": "",
-        "proName": "BITSTAMP:BTCUSD"
-      },
-      {
-        "description": "",
-        "proName": "FX:EURUSD"
-      },
-      {
-        "description": "",
-        "proName": "BINANCE:BTCUSDT"
-      },
-      {
-        "description": "",
-        "proName": "SP:SPX"
-      }
-    ],
-    "showSymbolLogo": false,
-    "isTransparent": true,
-    "displayMode": "adaptive",
-    "colorTheme": "dark",
-    "locale": "br"
-  }
-    </script>
-  </div>
-  <!-- TradingView Widget END -->
-    <!-- PRINCIPAL -->
-    <main class="main">
-        <section class="home section" id="home">
-            <div class="home__container container grid">
-                <img src="img/graficopizza.png" alt="Gráfico de pizza mostrando resultados de trading" class="home__img">
-                <div class="home__data">
-                    <h1 class="home__title">AS MELHORES <span>FERRAMENTAS</span> <br>PARA DAY TRADE</h1>                    
-                    <p class="home__description">Desenvolvemos soluções financeiras inovadoras para traders.</p>
-                    <div class="home__buttons">
-                        <a href="#buy" class="button"><span><i class="ri-arrow-right-line"></i></span>COMPRAR AGORA</a>
-                        <a href="#acess" class="button__link">MAIS DETALHES</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- NOVIDADES -->
-        <div class="new__container container grid">
-            <div class="new__data">
-                <h2 class="section__title highlight">SOLUÇÕES QUE TRANSFORMAM DECISÕES EM <span>RESULTADOS!</span></h2>
-                <p class="new__description">Nossas ferramentas foram projetadas para tornar suas decisões mais rápidas, inteligentes e eficazes.</p>
-            </div>
-            <div class="new__content grid">    
-                <article class="new__card">
-                    <img src="img/adesivo.png" alt="Automação de estratégia" class="new__img">
-                    <h2 class="new__title">Automação de Estratégia</h2>
-                    <p class="new__description">Nossos indicadores acompanham regras de automação que podem ser aplicadas diretamente no automatizador do Profit.</p>
-                </article>
-                <article class="new__card">
-                    <img src="img/celular.png" alt="Sala ao vivo" class="new__img">
-                    <h2 class="new__title">Sala ao Vivo</h2>
-                    <p class="new__description">Preço especial e exclusivo para membros que possuem o indicador.</p>
-                </article>
-                <article class="new__card">
-                    <img src="img/notebook.png" alt="Indicadores FuturePRO" class="new__img">
-                    <h2 class="new__title">Indicadores FuturePRO</h2>
-                    <p class="new__description">Máximo desempenho nas tomadas de decisões.</p>
-                </article>
-            </div>
+            </ul>
+            <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
         </div>
-    </section>
-    <section class="new section" id="news">            
-
-    <!-- ACESSO AO CONTEÚDO COMPLETO -->
-    <section class="acess section" id="acess">
-        <div class="acess__container container grid">
-            <img src="img/acesso.png" alt="Indicadores disponíveis" class="acess__img">
-            <div class="acess__data">
-                <h2 class="acess__title">ACESSO AO CONTEÚDO COMPLETO!</h2>
-                <ul class="acess__description">
-                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Conteúdo Completo</li>
-                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Todos os Indicadores</li>
-                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Vídeos de Apoio</li>
-                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Atualizações</li>
-                    <li class="acess__item"><i class="ri-checkbox-fill"></i> Grupo Telegram Suporte</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPATIBILIDADE -->
-    <section class="shop section" id="shop">
-        <h2 class="section__title highlight">COMPATIBILIDADE GARANTIDA</h2>
-        <p class="shop__description">Nossos indicadores se integram perfeitamente às plataformas líderes, proporcionando mais agilidade e precisão nas suas operações.</p>
-        <div class="shop__container container grid">
-            <article class="shop__card">
-                <a href="https://www.nelogica.com.br/produtos" target="_blank">
-                    <img src="img/profittxt.png" alt="Logo Profit" class="shop__logo">
-                    <img src="img/profit.png" alt="Plataforma Profit" class="shop__img">
-                </a>
-            </article>
-            <article class="shop__card">
-                <a href="https://www.vectorcrypto.com.br/pt" target="_blank">
-                    <img src="img/vectortxt.png" alt="Logo Vector" class="shop__logo">
-                    <img src="img/vector.png" alt="Plataforma Vector" class="shop__img">
-                </a>
-            </article>
-            <article class="shop__card">
-                <a href="https://www.blackarrowtrading.com/pt" target="_blank">
-                    <img src="img/blackarrowtxt.png" alt="Logo BlackArrow" class="shop__logo">
-                    <img src="img/blackarrow.png" alt="Plataforma BlackArrow" class="shop__img">
-                </a>
-            </article>
-        </div>
-    </section>
-
-<!--------------------tela do celular --------------------->
-
-<section class="iphone section" id="iphone">
-    <div class="container iphone__wrapper">
-        <!-- Título da Seção -->
-        <h1 class="section__title iphone">MAXIMIZE SEUS RESULTADOS!</h1>
-
-        <!-- Container do iPhone -->
-        <div class="iphone-container">
-            <!-- Moldura do iPhone -->
-            <img src="img/tela.png" alt="Moldura do iPhone" class="iphone-frame">
+        <div class="nav__actions">
             
-            <!-- Vídeo Local por trás da moldura -->
-            <div class="video-wrapper">
-                <video autoplay loop muted playsinline controlslist="nodownload nofullscreen noremoteplayback">
-                    <source src="img/copy_049FA641-FD10-4B06-87FC-4067A9535FA1.mp4" type="video/mp4">
-                    Seu navegador não suporta o elemento de vídeo.
-                </video>
+            </i>
+            <div  class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+        </div>
+    </nav>
+</header>
+  <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "description": "",
+      "proName": "BMFBOVESPA:IBOV"
+    },
+    {
+      "description": "",
+      "proName": "BITSTAMP:BTCUSD"
+    },
+    {
+      "description": "",
+      "proName": "FX:EURUSD"
+    },
+    {
+      "description": "",
+      "proName": "BINANCE:BTCUSDT"
+    },
+    {
+      "description": "",
+      "proName": "SP:SPX"
+    }
+  ],
+  "showSymbolLogo": false,
+  "isTransparent": true,
+  "displayMode": "adaptive",
+  "colorTheme": "dark",
+  "locale": "br"
+}
+  </script>
+</div>
+
+<!--HOME -->    
+  <div class="glow-background"></div> <!-- Adicionando o fundo com glow -->
+  <main class="main">
+        <section class="home section" id="home">
+          <div class="home__container container grid">
+            <img src="media/graficopizza.png" alt="Gráfico de pizza mostrando resultados de trading" class="home__img">
+            <div class="home__data">
+              <h1 class="home__title">AS MELHORES <span>FERRAMENTAS</span> PARA DAY TRADE</h1>                    
+              <p class="home__description">Desenvolvemos soluções financeiras inovadoras para traders.</p>
+            </div>
+          </div>
+        </section>
+  </main>
+<!-- video grafico -->  
+  <section class="video-section" id="grafico">
+        <video autoplay muted loop playsinline>
+            <source src="media/Gravação de Tela 2024-09-18 às 20.07.45.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+  </section>
+<!-- card-principal -->
+  <section class="card-section" id="card">
+        <div class="card">
+            <div class="card-glow"></div> <!-- Adiciona o efeito de glow -->
+            <img src="media/Untitled design.png" alt="Composite Image" class="card-image">
+            <div class="card-content">
+                <h2>Potencialize suas operações com a <span>FuturePRO</span>!</h2>
+                <p>A melhor ferramenta para Day Trade está ao seu alcance. Nossos indicadores avançados foram projetados para ajudar traders a tomar decisões rápidas, precisas e lucrativas. Aproveite esta oportunidade única para elevar seu desempenho no mercado.</p>
+                <!--<button>Descubra Agora</button> !-->
             </div>
         </div>
-    </div>
-</section>
+  </section>
+<!-- video tela celular -->
+  <section class="iphone section" id="iphone">
+      <div class="container iphone__wrapper">
+          <!-- Título no topo -->
+          <h1 class="section__title iphone">MAXIMIZE SEUS RESULTADOS!</h1>
+  
+          <!-- Grid de duas colunas: iPhone e lista de recursos -->
+          <div class="iphone__grid">
+              <!-- Coluna 1: iPhone com o vídeo -->
+              <div class="iphone-container">
+                  <!-- Div de Glow -->
+                  <div class="iphone-glow"></div> <!-- Adiciona o glow atrás do iPhone -->
+  
+                  <!-- Moldura do iPhone -->
+                  <img src="media/tela.png" alt="Moldura do iPhone" class="iphone-frame">
+  
+                  <!-- Vídeo dentro do iPhone -->
+                  <div class="video-wrapper">
+                      <video autoplay loop muted playsinline controlslist="nodownload nofullscreen noremoteplayback">
+                          <source src="media/copy_049FA641-FD10-4B06-87FC-4067A9535FA1.mp4" type="video/mp4">
+                          Seu navegador não suporta o elemento de vídeo.
+                      </video>
+                  </div>
+              </div>
+  
+              <!-- Coluna 2: Lista com ícones -->
+              <div class="features-list">
+                  <ul>
+                      <li>Mini Índice <img src="media/BR.ico" alt="bandeira Brasil"></li>
+                      <li>Mini Dólar <img src="media/EUA.ico" alt="bandeira EUA"></li>                      
+                      <li>Forex <img src="media/MUNDO.ico" alt="globo"></li>
+                      <li>Crypto <img src="media/BITCOIN.ico" alt="logo Bitcoin"></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </section> 
+<!-- COMPATIBILIDADE -->
+  <section class="compatibility section" id="compatibilidade">
+  <h2 class="section__title highlight">COMPATIBILIDADE GARANTIDA</h2>
+  <p class="compatibility__description">Nossos indicadores se integram perfeitamente às plataformas líderes,<br> proporcionando mais agilidade e precisão nas suas operações.</p>
+  <div class="compatibility__container container grid">
+      <article class="compatibility__card">
+          <img src="media/profittxt.png" alt="Logo Profit" class="compatibility__logo">
+          <a href="https://www.nelogica.com.br/produtos" target="_blank" class="compatibility__link">
+              <div class="compatibility__img-wrapper">
+                  <img src="media/profit.png" alt="Plataforma Profit" class="compatibility__img">
+              </div>
+          </a>
+      </article>
+      <article class="compatibility__card">
+          <img src="media/vectortxt.png" alt="Logo Vector" class="compatibility__logo">
+          <a href="https://www.vectorcrypto.com.br/pt" target="_blank" class="compatibility__link">
+              <div class="compatibility__img-wrapper">
+                  <img src="media/vector.png" alt="Plataforma Vector" class="compatibility__img">
+              </div>
+          </a>
+      </article>
+      <article class="compatibility__card">
+          <img src="media/blackarrowtxt.png" alt="Logo BlackArrow" class="compatibility__logo">
+          <a href="https://www.blackarrowtrading.com/pt" target="_blank" class="compatibility__link">
+              <div class="compatibility__img-wrapper">
+                  <img src="media/blackarrow.png" alt="Plataforma BlackArrow" class="compatibility__img">
+              </div>
+          </a>
+      </article>
+  </div>
+  </section>
+<!--CARD DE PAGAMENTO !-->
+  <section class="pricing-section" id="pay">
+      <div class="glass-card">
+          <!-- Adiciona a div de glow aqui para aplicar o efeito atrás do card -->
+          <div class="card-glow"></div>
+  
+          <div class="payment-toggle">
+              <button id="pay-pix" class="toggle-btn active">Pix</button>
+              <button id="pay-cartao" class="toggle-btn">Cartão</button>
+          </div>
+  
+          <div class="pricing-card">
+              <h2>Escolha o método de pagamento:</h2>
+  
+              <p class="price">R$ <span id="payment-amount">249</span> <span>/ ano</span></p>
+              <p class="daily-price">R$<span id="daily-amount">0,68</span> por dia</p>
+              <p class="discount">Você economiza <span id="discount-amount">17%</span> ao ano!</p>
+  
+              <p>O pacote completo inclui:</p>
+              <ul>
+                  <li>Assinatura de 12 meses</li>
+                  <li>Conteúdo completo</li>
+                  <li>Vídeos de apoio</li>
+                  <li>Atualizações mensais</li>
+                  <li>Operações manuais e automatizadas</li>
+                  <li>Suporte 24/7</li>
+              </ul>
+  
+              <button id="pay-now-button">Pagar com Pix</button>
+  
+              <div class="secure-payment">
+                  <img src="media/mpago.png" alt="Compra Segura Mercado Pago" width="150">
+                  <p>Compra 100% segura</p>
+              </div>
+          </div>
+      </div>
+  </section>
 
-    <!-- PAGAMENTO -->
-    <section class="promo-section section" id="buy">
-        <h1 class="section__title ">APROVEITE A MELHOR FERRAMENTA PARA DAY TRADE!</h1>
+ <!-- BOTÃO WHATSAPP FIXO -->
+ <a href="https://wa.me/5541988919440?text=Olá%2C%20gostaria%20de%20mais%20informações!" class="whatsapp-button" target="_blank">
+  <i class="ri-whatsapp-fill whatsapp-icon"></i>
+</a>
 
-        <div class="promo__container container grid">
-            <div class="promo__card-block">
-                <div class="promo__animation">
-                    <img src="img/VISA-NOMOS-XP.png" alt="Cartão de crédito" class="promo-card__img card-image">
-                </div>
-                <div class="promo-card__text">
-                    <span class="promo-card__original-price">De R$899</span><br>
-                    <span class="promo-card__discount-price">Por Apenas R$249<br> ou 299 no cartão de crédito</span>
-                </div>
-            </div>
-            <div class="promo__text" id="buy">
-                <h1 class="promo-title">FuturePRO!</h1>
-                <p class="promo__description">Nossos indicadores foram desenvolvidos para ajudar traders a tomar decisões rápidas e inteligentes. Não perca esta oportunidade de transformar suas operações.</p>
-                <div class="promo__buttons">
-                    <a href="#" class="button" id="comprarAgoraPix" onclick="abrirPopuppix(event)"><span><i class="ri-money-dollar-circle-line"></i></span>PIX</a>
-                    <a href="#" class="button" id="comprarAgoraCartao" onclick="abrirPopupcartao(event)"><span><i class="ri-bank-card-line"></i></span>Cartão</a>
-                </div>
-                <h2 class="promo__description">PAGUE 249,00 NO PIX OU 299 NO CARTÃO EM ATÉ 12x</h2>
-            </div>
-        </div>
-    </section>
-
-    <!-- BOTÃO WHATSAPP FIXO -->
-    <a href="https://wa.me/5541988919440?text=Olá%2C%20gostaria%20de%20mais%20informações!" class="whatsapp-button" target="_blank">
-        <i class="ri-whatsapp-fill whatsapp-icon"></i>
-    </a>
-
-    <!-- SCROLL UP -->
-    <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>
-
-    <!-- SCRIPTS -->
+<!-- SCROLL UP -->
+<a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>  
+  
+  
+  
+  
+  
+  
+  
+    
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/scrollreveal.min.js"></script>
     <script src="js/main.js"></script>
+</body>    
 </body>
 </html>

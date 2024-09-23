@@ -1,0 +1,75 @@
+/* Compatibilidade */
+.compatibility__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    margin-bottom: 10rem;
+}
+
+.compatibility__card {
+    position: relative;
+    width: 300px;
+    height: 225px;
+    z-index: 1;
+}
+
+.compatibility__logo {
+    position: absolute;
+    bottom: 1rem;
+    top: 1rem; /* Ajuste o topo conforme necessário */
+    left: 59%;
+    transform: translateX(-50%);
+    width: 8rem; /* Reduzi a largura da logo */
+    max-width: 100%;
+    height: auto;
+}
+
+/* Efeito hover e ajuste de clique só na imagem */
+.compatibility__img {
+    position: absolute;
+    top: 4.6rem;
+    left: 0;
+    right: 0;
+    width: 370px;
+    margin: 0 auto;
+    transition: transform 0.4s;
+    filter: drop-shadow(var(--shadow-img));
+    z-index: -1;
+}
+
+.compatibility__card a {
+    display: block;
+}
+
+.compatibility__card:hover .compatibility__img {
+    transform: translateY(-0.5rem);
+}
+
+/* O hover agora só afeta a imagem, não todo o card */
+.compatibility__card:hover {
+    transform: none;
+}
+
+.compatibility__description {
+    font-size: var(--h2-font-size);  
+    text-align: center;
+    z-index: 1;
+    margin-bottom: 3rem;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .compatibility__container {
+        grid-template-columns: 1fr;
+    }
+
+    .compatibility__card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .compatibility__img {
+        width: 100%; /* Ajusta a largura da imagem em telas menores */
+    }
+}

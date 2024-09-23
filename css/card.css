@@ -1,0 +1,227 @@
+/* Estilo geral */
+.pricing-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    background-size: cover;
+}
+
+/* Card de vidro (Glassmorphism) */
+.glass-card {
+    background: rgba(255, 255, 255, 0.2); /* Transparência */
+    backdrop-filter: blur(15px); /* Desfoque de fundo */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Sombra do card */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Bordas sutis */
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+    position: relative; /* Para que o glow fique atrás do conteúdo */
+}
+
+/* Glow no fundo do card */
+.card-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255,255,255,0.3), rgba(255,255,255,0) 70%);
+    filter: blur(30px);
+    z-index: -1; /* Coloca o glow atrás do card */
+    opacity: 0.6;
+}
+
+/* Botão de alternância Pix e Cartão (Glassmorphism nos botões) */
+.payment-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Transparência para efeito de vidro */
+    backdrop-filter: blur(10px); /* Desfoque nos botões */
+    border-radius: 30px;
+    padding: 5px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.toggle-btn {
+    width: 50%;
+    border: none;
+    background: transparent;
+    padding: 10px 0;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 30px;
+}
+
+.toggle-btn.active {
+    background-color: rgba(255, 255, 255, 0.3); /* Efeito de vidro */
+    color: #fff;
+}
+
+.toggle-btn:not(.active):hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Efeito de vidro mais suave */
+}
+
+/* Card */
+.pricing-card {
+    text-align: center;
+    color: white;
+}
+
+/* Preços e desconto */
+.price {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.daily-price {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.discount {
+    background-color: rgba(255, 255, 255, 0.15); /* Transparência para efeito de vidro */
+    backdrop-filter: blur(5px); /* Desfoque no desconto */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: white;
+}
+
+/* Estilos da lista UL e LI */
+.pricing-card ul {
+    list-style: none; /* Remove os marcadores padrão */
+    padding-left: 0; /* Remove o padding padrão */
+    margin-top: 15px;
+}
+
+.pricing-card ul li {
+    color: #fff; /* Cor dos itens da lista */
+    font-size: 15px;
+    padding: 10px 0; /* Espaçamento vertical */
+    position: relative;
+    padding-left: 30px; /* Adiciona espaço à esquerda para o ícone */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+.pricing-card ul li::before {
+    content: '✔️'; /* Ícone ou símbolo desejado */
+    position: absolute;
+    left: 0; /* Posição do ícone */
+    top: 50%; /* Centraliza verticalmente o ícone */
+    transform: translateY(-50%); /* Ajuste fino para centralizar o ícone em relação ao texto */
+    color: var(--first-color-light); /* Cor do ícone */
+    font-size: 18px; /* Tamanho do ícone */
+}
+
+/* Botão de pagamento */
+#pay-now-button {
+    background-color: rgba(255, 255, 255, 0.25); /* Transparência */
+    backdrop-filter: blur(5px); /* Desfoque no botão de pagamento */
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+#pay-now-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Pagamento seguro */
+.secure-payment {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.secure-payment img {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+}
+
+.secure-payment p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 10px;
+}
+
+/* Estilos do Pop-up */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo com opacidade */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .popup-container {
+    background-color: rgba(255, 255, 255, 0.2); /* Transparência do popup */
+    backdrop-filter: blur(15px); /* Efeito de desfoque (glassmorphism) */
+    padding: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    max-width: 90%; /* Para se ajustar em dispositivos móveis */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Sombra do card */
+    width: 100%;
+    max-width: 500px; /* Tamanho máximo para o pop-up */
+  }
+  
+  .popup-title {
+    font-size: var(--h2-font-size);
+    color: var(--first-color); /* Cor predominante */
+    margin-bottom: 1rem;
+  }
+  
+  .popup-text {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    font-size: var(--normal-font-size);
+  }
+  
+  .popup-link {
+    color: var(--first-color-light);
+    text-decoration: none;
+    font-weight: var(--font-bold);
+  }
+  
+  .popup-link:hover {
+    text-decoration: underline;
+  }
+  
+  .popup-close {
+    background-color: var(--first-color);
+    color: var(--white-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: var(--normal-font-size);
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup-close:hover {
+    background-color: var(--first-color-light);
+  }
+  
