@@ -37,6 +37,11 @@
     filter: drop-shadow(var(--shadow-img));
     z-index: -1;
 }
+.compatibility__logo.vector{
+    width: 9rem;    
+    top: 1.7rem;
+}
+
 
 .compatibility__card a {
     display: block;

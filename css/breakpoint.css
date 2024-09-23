@@ -93,19 +93,26 @@ video {
         box-sizing: border-box;
       }
     .section {
-        padding-block: 2rem 3rem;
+        padding-block: 4rem 6rem;
+    }
+    .video-section{
+        padding: 0 0;
     }
     .card{
         width: 24rem;
+    }
+    .card-content{
+        left: 1rem;
     }
     .card-content h2{
         font-size: .9rem;
     }
     .card-content p {
         font-size: 0.5rem;
+        
     }
     .card-image{
-        top: -2.1rem;
+        top: 0rem;
         width: 12rem;
     }
     .iphone.section {
@@ -146,6 +153,7 @@ video {
         
         width: 18rem;
         height: auto;
+        top: -10rem;
       
     }
 
