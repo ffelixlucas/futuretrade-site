@@ -74,6 +74,16 @@ video {
     max-width: 100%;
     height: auto;
 }
+#pay-now-button {
+    background-color: rgba(255, 255, 255, 0.35); /* Mais opacidade em telas menores */
+    color: #fff; /* Garante que o texto continue visível */
+    font-weight: 600; /* Aumenta a espessura do texto */
+}
+
+#pay-now-button:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Ajusta opacidade ao hover */
+    color: #000; /* Texto mais escuro no hover */
+}
 }
 @media (max-width: 425px) {
     html, body {
@@ -174,7 +184,56 @@ video {
         margin-top: -3px;
     margin-bottom: -9px;
     }
-    
+    .glass-card {
+        width: 18rem; /* Ajusta a largura do card para telas pequenas */
+        padding: 20px;
+        border-radius: 15px; /* Reduz um pouco o raio para se ajustar à tela menor */
+    }
+
+    .pricing-section {
+        height: auto; /* Ajusta a altura da seção de pagamento */
+    }
+
+    #pay-now-button {
+        font-size: 16px; /* Tamanho menor da fonte para telas menores */
+        padding: 12px 20px; /* Ajusta o padding */
+        background-color: rgba(255, 255, 255, 0.4); /* Opacidade maior para garantir visibilidade */
+        color: #000; /* Texto mais escuro em dispositivos pequenos */
+    }
+    /* Estilos gerais de ajuste em dispositivos menores */
+@media (max-width: 425px) {
+    .pricing-card h2 {
+        font-size: 1.4rem; /* Tamanho do texto reduzido para telas pequenas */
+    }
+
+    .price {
+        font-size: 2rem; /* Ajusta o tamanho do preço em telas menores */
+    }
+
+    .pricing-card ul li {
+        font-size: 0.9rem; /* Reduz o tamanho dos itens da lista em telas menores */
+    }
+
+    /* Corrigir possíveis quebras no layout do card */
+    .glass-card {
+        padding: 10px 15px; /* Reduzir o padding para caber melhor */
+    }
+}
+
   
 }
 
+/* Aplica para dispositivos iOS usando WebKit (como Safari no iPhone) */
+@supports (-webkit-touch-callout: none) {
+    #pay-now-button {
+        background-color: rgba(255, 255, 255, 0.4); /* Mais opaco para iPhones */
+        color: #000; /* Garante texto visível em iPhones */
+        font-weight: 500; /* Espessura do texto */
+        border-radius: 30px;
+    }
+
+    #pay-now-button:hover {
+        background-color: rgba(255, 255, 255, 0.6); /* Opacidade maior ao passar o mouse */
+        color: #000; /* Texto mais escuro no hover */
+    }
+}
