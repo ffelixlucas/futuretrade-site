@@ -1,26 +1,31 @@
 /* Estilo geral */
-.pricing-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  .pricing-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-size: cover;
     
-    background-size: cover;
 }
 
 /* Card de vidro (Glassmorphism) */
-.glass-card {
-    background: rgba(255, 255, 255, 0.2); /* Transparência */
-    backdrop-filter: blur(15px); /* Desfoque de fundo */
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Sombra do card */
-    border: 1px solid rgba(255, 255, 255, 0.18); /* Bordas sutis */
-    max-width: 350px;
-    width: 100%;
-    text-align: center;
-    position: relative; /* Para que o glow fique atrás do conteúdo */
-}
+
+  
+    .glass-card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        padding: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        max-width: 350px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+    }
+    
+
+
 
 /* Glow no fundo do card */
 .card-glow {
@@ -233,4 +238,80 @@
   .popup-close:hover {
     background-color: var(--first-color-light);
   }
-  
+
+
+/* Estilo para a seção de cupom */
+.coupon-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.coupon-section label {
+    color: white;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.coupon-input {
+    padding: 0.2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 75%; /* Tamanho do campo de texto */
+    box-sizing: border-box;
+}
+
+.apply-btn {
+    
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+}
+
+.apply-btn:hover {
+    background-color: #32E6E2; /* Cor de hover */
+}
+
+/* Mensagem de erro */
+.coupon-error {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilo geral do card */
+.pricing-card ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.pricing-card ul li {
+    color: white;
+    font-size: 15px;
+    padding: 10px 0;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.pricing-card ul li::before {
+    content: '✔️';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00EBC7;
+    font-size: 18px;
+}

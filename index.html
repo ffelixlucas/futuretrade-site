@@ -196,43 +196,54 @@
       </article>
   </div>
   </section>
-<!--CARD DE PAGAMENTO !-->
-  <section class="pricing-section" id="pay">
-      <div class="glass-card">
-          <!-- Adiciona a div de glow aqui para aplicar o efeito atrás do card -->
-          <div class="card-glow"></div>
+<!-- CARD DE PAGAMENTO COM CUPOM -->
+<section class="pricing-section" id="pay">
+    <div class="glass-card">
+        <!-- Adiciona a div de glow aqui para aplicar o efeito atrás do card -->
+        <div class="card-glow"></div>
+
+        <div class="payment-toggle">
+            <button id="pay-pix" class="toggle-btn active">Pix</button>
+            <button id="pay-cartao" class="toggle-btn">Cartão</button>
+        </div>
+
+        <div class="pricing-card">
+            <h2>Escolha o método de pagamento:</h2>
+
+            <p class="price">R$ <span id="payment-amount">249</span> <span>/ ano</span></p>
+            <p class="daily-price">R$<span id="daily-amount">0,68</span> por dia</p>
+            <p class="discount">Você economiza <span id="discount-amount">17%</span> ao ano!</p>
+
+            <p>O pacote completo inclui:</p>
+            <ul>
+                <li>Assinatura de 12 meses</li>
+                <li>Conteúdo completo</li>
+                <li>Vídeos de apoio</li>
+                <li>Atualizações mensais</li>
+                <li>Operações manuais e automatizadas</li>
+                <li>Suporte 24/7</li>
+            </ul>
+
+            <!-- Campo de cupom e botão aplicar -->
+            <div class="coupon-section">
+                <label for="coupon-code">Aplicar Cupom:</label>
+                <input type="text" id="coupon-code" class="coupon-input" placeholder="Digite o cupom aqui">
+                <button id="validate-coupon" class="apply-btn">Aplicar</button>
+            </div>
+            <p id="coupon-message" class="hidden coupon-error">Cupom inválido!</p> <!-- Mensagem de erro -->
+
+            <!-- Botões de pagamento -->
+            <button id="pay-now-button">Pagar com Pix</button>
+            <button id="pay-now-discount-button" class="hidden">Pagar com Pix (R$ 199)</button>
+
+            <div class="secure-payment">
+                <img src="media/mpago.png" alt="Compra Segura Mercado Pago" width="150">
+                <p>Compra 100% segura</p>
+            </div>
+        </div>
+    </div>
+</section>
   
-          <div class="payment-toggle">
-              <button id="pay-pix" class="toggle-btn active">Pix</button>
-              <button id="pay-cartao" class="toggle-btn">Cartão</button>
-          </div>
-  
-          <div class="pricing-card">
-              <h2>Escolha o método de pagamento:</h2>
-  
-              <p class="price">R$ <span id="payment-amount">249</span> <span>/ ano</span></p>
-              <p class="daily-price">R$<span id="daily-amount">0,68</span> por dia</p>
-              <p class="discount">Você economiza <span id="discount-amount">17%</span> ao ano!</p>
-  
-              <p>O pacote completo inclui:</p>
-              <ul>
-                  <li>Assinatura de 12 meses</li>
-                  <li>Conteúdo completo</li>
-                  <li>Vídeos de apoio</li>
-                  <li>Atualizações mensais</li>
-                  <li>Operações manuais e automatizadas</li>
-                  <li>Suporte 24/7</li>
-              </ul>
-  
-              <button id="pay-now-button">Pagar com Pix</button>
-  
-              <div class="secure-payment">
-                  <img src="media/mpago.png" alt="Compra Segura Mercado Pago" width="150">
-                  <p>Compra 100% segura</p>
-              </div>
-          </div>
-      </div>
-  </section>
 
  <!-- BOTÃO WHATSAPP FIXO -->
  <a href="https://wa.me/5541988919440?text=Olá%2C%20gostaria%20de%20mais%20informações!" class="whatsapp-button" target="_blank">
