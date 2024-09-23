@@ -403,6 +403,7 @@ video {
     flex-direction: column;
     justify-content: center;
     position: relative;
+    left: 1rem;
     z-index: 1; /* Fica acima do glow */
 }
 
