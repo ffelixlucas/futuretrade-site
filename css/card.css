@@ -64,7 +64,7 @@
 /* Estado ativo dos botões */
 .toggle-btn.active {
     background-color: rgba(255, 255, 255, 0.3); /* Efeito de vidro */
-    color: #fff;
+    color: #00EBC7;
 }
 
 /* Cor de hover para botões ativos */
