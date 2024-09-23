@@ -88,7 +88,53 @@ document.addEventListener('DOMContentLoaded', function () {
         const height = 800;
         const left = (window.innerWidth - width) / 2;
         const top = (window.innerHeight - height) / 2;
-        window.open(url, '_blank', `width=${width},height=${height},left=${left},top=${top}`);
+
+        const popup = window.open(url, '_blank', `width=${width},height=${height},left=${left},top=${top}`);
+
+        // Verifica se o popup foi bloqueado
+        if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+            alert('Falha ao abrir o popup. Verifique se o navegador está bloqueando popups.');
+            return;
+        }
+
+        // Monitora o fechamento do popup de pagamento
+        const checkPopupClosed = setInterval(() => {
+            if (popup.closed) {
+                clearInterval(checkPopupClosed); // Para a verificação quando o popup for fechado
+                abrirPopupConfirmacao();  // Exibe a mensagem de confirmação no popup
+            }
+        }, 1000); // Verifica a cada segundo
+    }
+
+    // Função para abrir o popup de confirmação após o pagamento
+    function abrirPopupConfirmacao() {
+        const whatsappLink = "https://wa.me/5541988919440?text=Olá%2C%20acabei%20de%20realizar%20um%20pagamento.%20Aqui%20está%20meu%20comprovante!";
+
+        const popupHtml = `
+            <div class="popup-overlay" id="popup-overlay">
+                <div class="popup-container">
+                    <h2 class="popup-title">Realizou o pagamento?</h2>
+                    <p class="popup-text">Por favor, envie o comprovante de pagamento e seu nome completo para liberação do pedido:</p>
+                    <p class="popup-text">
+                        <i class="ri-whatsapp-fill" style="color: #25D366;"></i> 
+                        <a href="${whatsappLink}" target="_blank" class="popup-link">Clique aqui para enviar pelo WhatsApp</a>
+                    </p>
+                    <p class="popup-text">
+                        <i class="ri-phone-fill" style="color: #028877;"></i> 
+                        Número: <strong>(41) 98891-9440</strong>
+                    </p>
+                    <button class="popup-close" id="popup-close">Fechar</button>
+                </div>
+            </div>
+        `;
+
+        // Adiciona o HTML do popup na página
+        document.body.insertAdjacentHTML('beforeend', popupHtml);
+
+        // Fecha o popup de confirmação
+        document.getElementById('popup-close').addEventListener('click', function () {
+            document.getElementById('popup-overlay').remove(); // Remove o popup de confirmação
+        });
     }
 
     // Função para validar o cupom
