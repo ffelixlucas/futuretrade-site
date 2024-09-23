@@ -128,6 +128,13 @@ video {
     .iphone-container{
         right: 3rem;
     }
+    .toggle-btn.active {
+        
+        color: black;
+    }
+    .discount {        
+        color: black;
+    }
     .compatibility__description {
         font-size: .8rem;
         margin-bottom: 0rem;
@@ -146,6 +153,7 @@ video {
 
     .toggle-btn{
         font-size: 16px;
+        color:black;
     }
     .price {
         font-size: 30px;        
