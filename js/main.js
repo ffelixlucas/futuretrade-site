@@ -85,7 +85,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const dailyAmount = document.getElementById('daily-amount');
     const discountAmount = document.getElementById('discount-amount');
     const payNowButton = document.getElementById('pay-now-button');
-    const payNowDiscountButton = document.getElementById('pay-now-discount-button'); // Botão com desconto
+    const payNowDiscountButton = document.getElementById('pay-now-discount-button'); // Botão com desconto de R$ 199
+    const payNowDiscountButton189 = document.getElementById('pay-now-discount-button-189'); // Botão com desconto de R$ 189
     const couponInput = document.getElementById('coupon-code');
     const couponMessage = document.getElementById('coupon-message');
     const validateCouponButton = document.getElementById('validate-coupon');
@@ -95,10 +96,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const pixPrice = 249;
     const cartaoPrice = 299;
-    const discountedPixPrice = 199; // Valor com o desconto de cupom
+    const discountedPixPrice199 = 199; // Valor com o desconto de cupom DESCONTO199
+    const discountedPixPrice189 = 189; // Valor com o desconto de cupom SETEMBRO189
 
-    // Cupom que você pode alterar dinamicamente
-    const validCoupon = "DESCONTO199"; // Cupom válido que libera o desconto
+    // Cupons válidos
+    const validCoupons = {
+        "DESCONTO199": { price: discountedPixPrice199, link: 'https://mpago.la/2pQX5un', discount: '20%' },
+        "SETEMBRO189": { price: discountedPixPrice189, link: 'https://mpago.la/1FwwSxm', discount: '24%' }
+    };
 
     // Função para abrir o popup centralizado
     function abrirPopup(url) {
@@ -109,19 +114,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const popup = window.open(url, '_blank', `width=${width},height=${height},left=${left},top=${top}`);
 
-        // Verifica se o popup foi bloqueado
         if (!popup || popup.closed || typeof popup.closed === 'undefined') {
             alert('Falha ao abrir o popup. Verifique se o navegador está bloqueando popups.');
             return;
         }
 
-        // Monitora o fechamento do popup de pagamento
         const checkPopupClosed = setInterval(() => {
             if (popup.closed) {
-                clearInterval(checkPopupClosed); // Para a verificação quando o popup for fechado
-                abrirPopupConfirmacao();  // Exibe a mensagem de confirmação no popup
+                clearInterval(checkPopupClosed);
+                abrirPopupConfirmacao();
             }
-        }, 1000); // Verifica a cada segundo
+        }, 1000);
     }
 
     // Função para abrir o popup de confirmação após o pagamento
@@ -159,15 +162,25 @@ document.addEventListener('DOMContentLoaded', function () {
     validateCouponButton.addEventListener('click', function () {
         const enteredCoupon = couponInput.value.trim();
 
-        if (enteredCoupon === validCoupon) {
-            // Cupom válido, altera o preço e exibe o botão de desconto
-            paymentAmount.textContent = discountedPixPrice;
-            dailyAmount.textContent = (discountedPixPrice / 365).toFixed(2);
-            discountAmount.textContent = "30%"; // Atualiza o valor do desconto
-            couponMessage.classList.add('hidden'); // Esconde a mensagem de erro
-            payNowDiscountButton.classList.remove('hidden'); // Exibe o botão com desconto
-            payNowButton.classList.add('hidden'); // Esconde o botão normal
-            payNowDiscountButton.onclick = () => abrirPopup('https://mpago.la/2pQX5un'); // Link para pagamento com desconto
+        if (validCoupons[enteredCoupon]) {
+            // Cupom válido, altera o preço e exibe o botão de desconto correto
+            const { price, link, discount } = validCoupons[enteredCoupon];
+            paymentAmount.textContent = price;
+            dailyAmount.textContent = (price / 365).toFixed(2);
+            discountAmount.textContent = discount;
+            couponMessage.classList.add('hidden');
+            payNowButton.classList.add('hidden');
+            payNowDiscountButton.classList.add('hidden');
+            payNowDiscountButton189.classList.add('hidden');
+
+            // Exibe o botão correspondente ao cupom
+            if (enteredCoupon === "DESCONTO199") {
+                payNowDiscountButton.classList.remove('hidden');
+                payNowDiscountButton.onclick = () => abrirPopup(link);
+            } else if (enteredCoupon === "SETEMBRO189") {
+                payNowDiscountButton189.classList.remove('hidden');
+                payNowDiscountButton189.onclick = () => abrirPopup(link);
+            }
         } else {
             // Cupom inválido, exibe a mensagem de erro
             couponMessage.textContent = "Cupom inválido!";
@@ -198,6 +211,7 @@ document.addEventListener('DOMContentLoaded', function () {
             pixButton.classList.add('active');
             cartaoButton.classList.remove('active');
             payNowDiscountButton.classList.add('hidden'); // Esconde o botão de desconto se o usuário alternar para cartão
+            payNowDiscountButton189.classList.add('hidden');
             couponMessage.classList.add('hidden'); // Esconde a mensagem de cupom inválido
         } else if (paymentMethod === 'cartao') {
             paymentAmount.textContent = cartaoPrice;
@@ -208,6 +222,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cartaoButton.classList.add('active');
             pixButton.classList.remove('active');
             payNowDiscountButton.classList.add('hidden'); // Esconde o botão de desconto para cartão
+            payNowDiscountButton189.classList.add('hidden');
             couponMessage.classList.add('hidden'); // Esconde a mensagem de cupom inválido
         }
     }
