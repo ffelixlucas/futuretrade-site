@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const payNowButton = document.getElementById('pay-now-button');
     const payNowDiscountButton = document.getElementById('pay-now-discount-button'); // Botão com desconto de R$ 199
     const payNowDiscountButton189 = document.getElementById('pay-now-discount-button-189'); // Botão com desconto de R$ 189
+    const payNowDiscountButton80 = document.getElementById('pay-now-discount-button-80'); // Botão com desconto de R$ 80
     const couponInput = document.getElementById('coupon-code');
     const couponMessage = document.getElementById('coupon-message');
     const validateCouponButton = document.getElementById('validate-coupon');
@@ -98,11 +99,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const cartaoPrice = 299;
     const discountedPixPrice199 = 199; // Valor com o desconto de cupom DESCONTO199
     const discountedPixPrice189 = 189; // Valor com o desconto de cupom SETEMBRO189
+    const discountedPixPrice80 = 80;   // Valor com o desconto de cupom RENOVA80
 
     // Cupons válidos
     const validCoupons = {
         "DESCONTO199": { price: discountedPixPrice199, link: 'https://mpago.la/2pQX5un', discount: '20%' },
-        "SETEMBRO189": { price: discountedPixPrice189, link: 'https://mpago.la/1FwwSxm', discount: '24%' }
+        "SETEMBRO189": { price: discountedPixPrice189, link: 'https://mpago.la/1FwwSxm', discount: '24%' },
+        "RENOVA80": { price: discountedPixPrice80, link: 'https://mpago.la/1DKirny', discount: '68%' }
     };
 
     // Função para abrir o popup centralizado
@@ -172,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function () {
             payNowButton.classList.add('hidden');
             payNowDiscountButton.classList.add('hidden');
             payNowDiscountButton189.classList.add('hidden');
+            payNowDiscountButton80.classList.add('hidden');
 
             // Exibe o botão correspondente ao cupom
             if (enteredCoupon === "DESCONTO199") {
@@ -180,6 +184,9 @@ document.addEventListener('DOMContentLoaded', function () {
             } else if (enteredCoupon === "SETEMBRO189") {
                 payNowDiscountButton189.classList.remove('hidden');
                 payNowDiscountButton189.onclick = () => abrirPopup(link);
+            } else if (enteredCoupon === "RENOVA80") {
+                payNowDiscountButton80.classList.remove('hidden');
+                payNowDiscountButton80.onclick = () => abrirPopup(link);
             }
         } else {
             // Cupom inválido, exibe a mensagem de erro
@@ -210,9 +217,10 @@ document.addEventListener('DOMContentLoaded', function () {
             payNowButton.onclick = abrirPopuppix;
             pixButton.classList.add('active');
             cartaoButton.classList.remove('active');
-            payNowDiscountButton.classList.add('hidden'); // Esconde o botão de desconto se o usuário alternar para cartão
+            payNowDiscountButton.classList.add('hidden');
             payNowDiscountButton189.classList.add('hidden');
-            couponMessage.classList.add('hidden'); // Esconde a mensagem de cupom inválido
+            payNowDiscountButton80.classList.add('hidden');
+            couponMessage.classList.add('hidden');
         } else if (paymentMethod === 'cartao') {
             paymentAmount.textContent = cartaoPrice;
             dailyAmount.textContent = (cartaoPrice / 365).toFixed(2);
@@ -221,9 +229,10 @@ document.addEventListener('DOMContentLoaded', function () {
             payNowButton.onclick = abrirPopupcartao;
             cartaoButton.classList.add('active');
             pixButton.classList.remove('active');
-            payNowDiscountButton.classList.add('hidden'); // Esconde o botão de desconto para cartão
+            payNowDiscountButton.classList.add('hidden');
             payNowDiscountButton189.classList.add('hidden');
-            couponMessage.classList.add('hidden'); // Esconde a mensagem de cupom inválido
+            payNowDiscountButton80.classList.add('hidden');
+            couponMessage.classList.add('hidden');
         }
     }
 
