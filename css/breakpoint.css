@@ -155,7 +155,12 @@ video {
         height: auto;
         top: -10rem;
       
+    }    
+    video {
+       width: 184%;
+        
     }
+    
 
     /*card price */
 
