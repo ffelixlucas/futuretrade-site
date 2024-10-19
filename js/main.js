@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const discountAmount = document.getElementById('discount-amount');
     const payNowButton = document.getElementById('pay-now-button');
     const payNowDiscountButton = document.getElementById('pay-now-discount-button'); // Botão com desconto de R$ 199
-    const payNowDiscountButton189 = document.getElementById('pay-now-discount-button-189'); // Botão com desconto de R$ 189
+    const payNowDiscountButton169 = document.getElementById('pay-now-discount-button-169');
     const payNowDiscountButton80 = document.getElementById('pay-now-discount-button-80'); // Botão com desconto de R$ 80
     const couponInput = document.getElementById('coupon-code');
     const couponMessage = document.getElementById('coupon-message');
@@ -104,9 +104,54 @@ document.addEventListener('DOMContentLoaded', function () {
     // Cupons válidos
     const validCoupons = {
         "DESCONTO199": { price: discountedPixPrice199, link: 'https://mpago.la/2pQX5un', discount: '20%' },
-        "SETEMBRO189": { price: discountedPixPrice189, link: 'https://mpago.la/1FwwSxm', discount: '24%' },
+        "DESCONTO169": { price: 169, link: 'https://mpago.la/2fc1NKn', discount: '32%' }, // Verifique o nome do cupom
         "RENOVA80": { price: discountedPixPrice80, link: 'https://mpago.la/1DKirny', discount: '68%' }
     };
+    
+
+// Função para validar o cupom
+validateCouponButton.addEventListener('click', function () {
+    const enteredCoupon = couponInput.value.trim();
+
+    // Verifica se o cupom é válido
+    if (validCoupons[enteredCoupon]) {
+        const { price, link, discount } = validCoupons[enteredCoupon];
+
+        // Atualiza o preço e desconto
+        paymentAmount.textContent = price;
+        dailyAmount.textContent = (price / 365).toFixed(2);
+        discountAmount.textContent = discount;
+        couponMessage.classList.add('hidden');  // Esconde mensagem de erro
+
+        // Oculta todos os botões
+        document.querySelectorAll('.payment-btn').forEach(button => {
+            button.classList.add('hidden');
+        });
+
+        // Verifica qual botão exibir
+        if (enteredCoupon === "DESCONTO199") {
+            payNowDiscountButton.classList.remove('hidden');
+            payNowDiscountButton.textContent = `Pagar com Pix (R$ ${price})`;
+            payNowDiscountButton.onclick = () => abrirPopup(link);
+        } else if (enteredCoupon === "DESCONTO169") {
+            payNowDiscountButton169.classList.remove('hidden'); // Certifique-se de que este botão tenha o ID correto
+            payNowDiscountButton169.textContent = `Pagar com Pix (R$ ${price})`;
+            payNowDiscountButton169.onclick = () => abrirPopup(link);
+        } else if (enteredCoupon === "RENOVA80") {
+            payNowDiscountButton80.classList.remove('hidden');
+            payNowDiscountButton80.textContent = `Pagar com Pix (R$ ${price})`;
+            payNowDiscountButton80.onclick = () => abrirPopup(link);
+        }
+    } else {
+        // Se o cupom for inválido, exibe a mensagem de erro
+        couponMessage.textContent = "Cupom inválido!";
+        couponMessage.classList.remove('hidden');
+    }
+});
+
+
+
+
 
     // Função para abrir o popup centralizado
     function abrirPopup(url) {
@@ -159,41 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('popup-close').addEventListener('click', function () {
             document.getElementById('popup-overlay').remove(); // Remove o popup de confirmação
         });
-    }
-
-    // Função para validar o cupom
-    validateCouponButton.addEventListener('click', function () {
-        const enteredCoupon = couponInput.value.trim();
-
-        if (validCoupons[enteredCoupon]) {
-            // Cupom válido, altera o preço e exibe o botão de desconto correto
-            const { price, link, discount } = validCoupons[enteredCoupon];
-            paymentAmount.textContent = price;
-            dailyAmount.textContent = (price / 365).toFixed(2);
-            discountAmount.textContent = discount;
-            couponMessage.classList.add('hidden');
-            payNowButton.classList.add('hidden');
-            payNowDiscountButton.classList.add('hidden');
-            payNowDiscountButton189.classList.add('hidden');
-            payNowDiscountButton80.classList.add('hidden');
-
-            // Exibe o botão correspondente ao cupom
-            if (enteredCoupon === "DESCONTO199") {
-                payNowDiscountButton.classList.remove('hidden');
-                payNowDiscountButton.onclick = () => abrirPopup(link);
-            } else if (enteredCoupon === "SETEMBRO189") {
-                payNowDiscountButton189.classList.remove('hidden');
-                payNowDiscountButton189.onclick = () => abrirPopup(link);
-            } else if (enteredCoupon === "RENOVA80") {
-                payNowDiscountButton80.classList.remove('hidden');
-                payNowDiscountButton80.onclick = () => abrirPopup(link);
-            }
-        } else {
-            // Cupom inválido, exibe a mensagem de erro
-            couponMessage.textContent = "Cupom inválido!";
-            couponMessage.classList.remove('hidden');
-        }
-    });
+    }    
 
     // Função para Pix (sem desconto)
     function abrirPopuppix(event) {
