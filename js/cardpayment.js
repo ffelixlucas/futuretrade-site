@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Função para abrir o popup de confirmação após o pagamento
     function abrirPopupConfirmacao() {
-        const whatsappLink = "https://wa.me/5541988919440?text=Olá%2C%20acabei%20de%20realizar%20um%20pagamento.%20Aqui%20está%20meu%20comprovante!";
+        const whatsappLink = "https://wa.me/554199883694?text=Olá%2C%20acabei%20de%20realizar%20um%20pagamento.%20Aqui%20está%20meu%20comprovante!";
 
         const popupHtml = `
             <div class="popup-overlay" id="popup-overlay">
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </p>
                     <p class="popup-text">
                         <i class="ri-phone-fill" style="color: #028877;"></i> 
-                        Número: <strong>(41) 98891-9440</strong>
+                        Número: <strong>(41) 9 9988-3694</strong>
                     </p>
                     <button class="popup-close" id="popup-close">Fechar</button>
                 </div>
