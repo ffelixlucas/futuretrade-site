@@ -109,7 +109,7 @@ a {
 }
 
 .home__title span {
-    color: #FF79C6; /* Cor de destaque */
+    color: #e24e3a; /* Cor de destaque */
 }
 
 .home__description {
@@ -209,7 +209,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000322;
+    background-color: #01031C;
     padding: 50px 0;
 }
 
@@ -313,7 +313,7 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #000322;
+    background-color: #01031C;
     padding: 50px 0;
 }
 
@@ -328,7 +328,7 @@ video {
     justify-content: center;
     align-items: center;
     padding: 50px 0;
-    background: #000322;
+    background: #01031C;
 }
 
 .card {
@@ -356,7 +356,7 @@ video {
     justify-content: center;
     align-items: center;
     padding: 50px 0;
-    background: #000322; /* Fundo do site */
+    background: #01031C; /* Fundo do site */
 }
 
 .card {
@@ -415,12 +415,12 @@ video {
 }
 
 .card-content h2 span {
-    color: #FF79C6; /* Rosa para o destaque da palavra FuturePRO */
+    color: #e24e3a; /* Rosa para o destaque da palavra FuturePRO */
 }
 
 
 .card-content h2 span:nth-child(2) {
-    color: #FF79C6; /* Rosa */
+    color: #e24e3a; /* Rosa */
 }
 
 .card-content p {
