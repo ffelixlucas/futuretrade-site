@@ -157,7 +157,14 @@ a {
     transform: translate(-22%, -50%);
     z-index: 0;
     border-radius: 105%;
-    background: linear-gradient(343deg, #00FFBF, #000, #FF79C6, #0000, #00FFBF, #000, #FF79C6, #0000);
+    background: linear-gradient(62deg, 
+  rgba(255, 95, 109, 0.3), 
+  rgba(79, 172, 254, 0.3), 
+  rgba(128, 255, 219, 0.2), 
+  rgba(255, 95, 109, 0.3), 
+  rgba(79, 172, 254, 0.3), 
+  rgba(128, 255, 219, 0.2));
+
     filter: blur(100px);
     opacity: 1.35;
 }
@@ -246,7 +253,14 @@ video {
     left: 0;
     width: 51%;
     height: 74%;
-    background: linear-gradient(62deg, #00FFBF, #000, #FF79C6, #0000, #00FFBF, #000, #FF79C6, #0000);
+    background: linear-gradient(62deg, 
+  rgba(255, 95, 109, 0.3), 
+  rgba(79, 172, 254, 0.3), 
+  rgba(128, 255, 219, 0.2), 
+  rgba(255, 95, 109, 0.3), 
+  rgba(79, 172, 254, 0.3), 
+  rgba(128, 255, 219, 0.2));
+
     filter: blur(100px);
     z-index: 1;
     opacity: 0.6;
@@ -257,14 +271,17 @@ video {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 35%; /* Ajustado para o tamanho desejado */
-    height: 66%;
+    width: 55%; /* Ajustado para o tamanho desejado */
+    height: 76%;
     transform: translate(-50%, -50%); /* Centraliza corretamente */
     z-index: 1;
     border-radius: 105%; /* Arredondando as bordas do brilho */
-    background: linear-gradient(280deg, #00FFBF, #000, #FF79C6, #0000, #00FFBF, #000, #FF79C6, #0000);
-    filter: blur(100px);
-    opacity: 0.35; /* Opacidade ajustada para 35% */
+    background: radial-gradient(circle at 20% 20%, rgba(255, 95, 109, 0.3), transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(79, 172, 254, 0.3), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(128, 255, 219, 0.2), transparent 70%);
+    animation: move-background 2s infinite alternate ease-in-out;
+    filter: blur(60px);
+    
 }
 
 /* Hero Section */
@@ -378,7 +395,14 @@ video {
     left: 0%;
     width: 51%;
     height: 74%;
-    background: linear-gradient(62deg, #00FFBF, #000, #FF79C6, #0000, #00FFBF, #000, #FF79C6, #0000);
+    background: linear-gradient(62deg, 
+  rgba(255, 95, 109, 0.3), 
+  rgba(79, 172, 254, 0.3), 
+  rgba(128, 255, 219, 0.2), 
+  rgba(255, 95, 109, 0.3), 
+  rgba(79, 172, 254, 0.3), 
+  rgba(128, 255, 219, 0.2));
+
     filter: blur(100px);
     z-index: 1;
     filter: blur(100px);
