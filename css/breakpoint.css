@@ -62,7 +62,7 @@ video {
     
     gap: 15rem;
     justify-items: center;
-    margin-bottom: 18rem;
+    margin-bottom: 9rem;
 }
 .compatibility__logo {
     position: absolute;
@@ -92,8 +92,8 @@ video {
         
         box-sizing: border-box;
       }
-    .section {
-        padding-block: 4rem 6rem;
+    
+        
     }
     .video-section{
         padding: 0 0;

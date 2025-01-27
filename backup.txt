@@ -29,7 +29,6 @@
     <link rel="stylesheet" href="css/compatibilidade.css">
     <link rel="stylesheet" href="css/iphone.css">
     <link rel="stylesheet" href="css/breakpoint.css">
-    <link rel="stylesheet" href="css/cardteste.css">
 
     <!-- SWIPER CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -184,24 +183,54 @@
       </article>
   </div>
   </section>
+<!-- CARD DE PAGAMENTO COM CUPOM -->
+<section class="pricing-section" id="pay">
+  <div class="glass-card">
+      <!-- Adiciona a div de glow aqui para aplicar o efeito atrás do card -->
+      <div class="card-glow"></div>
 
-  <!-- CARD LOGIN -->
-  <section class="login-section" id="login">
-    <div class="login-card">
-      <div class="login-card-glow"></div> <!-- Adiciona o efeito de glow -->
-      <img src="media/profit.png" alt="Imagem de configuração" class="login-card-image">
-      <div class="login-card-content">
-        <h2>Configurações de alta <span>probabilidade</span></h2>
-        <p>Obtenha Indicadores Profissionais em nosso kit de ferramentas. Encontre as melhores negociações em todos os ativos.</p>
-        <a href="https://futuretrade-login.vercel.app/" class="login-cta-button">
-          <span>Acesse agora</span>
-          <span class="login-arrow-icon">→</span>
-        </a>
+      <div class="payment-toggle">
+          <button id="pay-pix" class="toggle-btn active">Pix</button>
+          <button id="pay-cartao" class="toggle-btn">Cartão</button>
       </div>
-    </div>
-  </section>
-  
 
+      <div class="pricing-card">
+          <h2>Escolha o método de pagamento:</h2>
+
+          <p class="price">R$ <span id="payment-amount">249</span> <span>/ ano</span></p>
+          <p class="daily-price">R$<span id="daily-amount">0,68</span> por dia</p>
+          <p class="discount">Você economiza <span id="discount-amount">17%</span> ao ano!</p>
+
+          <p>O pacote completo inclui:</p>
+          <ul>
+              <li>Assinatura de 12 meses</li>
+              <li>Conteúdo completo</li>
+              <li>Vídeos de apoio</li>
+              <li>Atualizações mensais</li>
+              <li>Operações manuais e automatizadas</li>
+              <li>Suporte 24/7</li>
+          </ul>
+
+          <!-- Campo de cupom e botão aplicar -->
+          <div class="coupon-section">
+              <label for="coupon-code">Aplicar Cupom:</label>
+              <input type="text" id="coupon-code" class="coupon-input" placeholder="Digite o cupom aqui">
+              <button id="validate-coupon" class="apply-btn">Aplicar</button>
+          </div>
+          <p id="coupon-message" class="hidden coupon-error">Cupom inválido!</p> <!-- Mensagem de erro -->
+
+          <!-- Botões de pagamento -->
+          <button id="pay-now-button" class="payment-btn">Pagar com Pix</button>
+          <button id="pay-now-discount-button" class="payment-btn hidden">Pagar com Pix (R$ 199)</button>
+          <button id="pay-now-discount-button-179" class="payment-btn hidden">Pagar com Pix (R$ 179)</button> <!-- Novo botão para o cupom DESCONTO179 -->
+
+          <div class="secure-payment">
+              <img src="media/mpago.png" alt="Compra Segura Mercado Pago" width="150">
+              <p>Compra 100% segura</p>
+          </div>
+      </div>
+  </div>
+</section>
 
 
   
@@ -226,5 +255,40 @@
     <script src="js/main.js"></script>
     <script src="js/cardpayment.js"></script>
 </body>    
+</body>
+</html>
+
+
+card
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações de Alta Probabilidade</title>
+  <link rel="stylesheet" href="css/cardteste.css">
+</head>
+<body>
+  <div class="background"></div> <!-- Adicionado para criar nuvens -->
+  <div class="container">
+    <div class="card">
+      <img src="media/profit.png" alt="Imagem de configuração" class="card-image">
+      <div class="card-content">
+        <a href="https://futuretrade-login.vercel.app/" class="cta-button">
+          <span>Acesse agora</span>
+          <span class="arrow-icon"></span>
+        </a>
+          <span class="arrow-icon"></span>
+        </button>
+        <h1 class="card-title">Configurações de alta<br> probabilidade</h1>
+        <p class="card-description">
+          Obtenha Indicadores <br>Profissionais em nosso<br> kit de ferramentas. <br>
+          Encontre as melhores <br>negociações em todos <br>os ativos.
+        </p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
