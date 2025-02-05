@@ -156,7 +156,7 @@ video {
     }    
     video {
        width: 184%;
-        
+       padding-top: 30px; 
     }
     
 
