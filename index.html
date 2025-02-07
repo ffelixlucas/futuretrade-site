@@ -1,244 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Future Trade oferece ferramentas inovadoras para traders com foco em day trade. Maximiza suas decisões e aumenta seus lucros com nossas soluções." />
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow" />
 
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Future Trade - Ferramentas para Traders">
-    <meta property="og:image" content="https://futuretradeindicadores.netlify.app/img/LOGO.ico"> <!-- URL completa da imagem -->
-    <meta property="og:url" content="https://futuretradeindicadores.netlify.app"> <!-- URL completa do site -->
-    <meta property="og:type" content="website">
-    <meta property="og:description" content="A melhor plataforma para traders. Otimize suas decisões com Future Trade.">
+    <meta property="og:title" content="Future Trade - Ferramentas para Traders" />
+    <meta property="og:image" content="https://futuretradeindicadores.netlify.app/img/LOGO.ico" />
+    <meta property="og:url" content="https://futuretradeindicadores.netlify.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="A melhor plataforma para traders. Otimize suas decisões com Future Trade." />
 
     <title>Future Trade - Ferramentas de Day Trade e Análise para Traders</title>
     <!-- Favicon -->
-    <link rel="icon" href="media/LOGO.ico" type="image/x-icon">
+    <link rel="icon" href="media/LOGO.ico" type="image/x-icon" />
 
     <!-- REMIXICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/nav.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/iphone.css">
-    <link rel="stylesheet" href="css/card.css">
-    <link rel="stylesheet" href="css/compatibilidade.css">
-    <link rel="stylesheet" href="css/iphone.css">
-    <link rel="stylesheet" href="css/breakpoint.css">
-    <link rel="stylesheet" href="css/cardteste.css">
+    <!-- CSS existentes -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/iphone.css" />
+    <link rel="stylesheet" href="css/card.css" />
+    <link rel="stylesheet" href="css/compatibilidade.css" />
+    <link rel="stylesheet" href="css/iphone.css" />
+    <link rel="stylesheet" href="css/breakpoint.css" />
+    <link rel="stylesheet" href="css/cardteste.css" />
+    <link rel="stylesheet" href="css/testimonial.css" />
+
 
     <!-- SWIPER CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-</head>
-<body>
-  <header class="header" id="header">
-    <nav class="nav container">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+
+  </head>
+  <body>
+    <header class="header" id="header">
+      <nav class="nav container">
         <a href="#" class="nav__logo">
-            <img src="media/LOGO.ico" alt="Logo do Future Trade" style="height: 30px; width: auto;">
-            Future Trade
+          <img src="media/LOGO.ico" alt="Logo do Future Trade" style="height: 30px; width: auto;" />
+          Future Trade
         </a>
-        
         <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list">
-                <li class="nav__item"><a href="#home" class="nav__link active-link">Início</a></li>
-                <li class="nav__item"><a href="#grafico" class="nav__link">Gráfico</a></li>
-                <li class="nav__item"><a href="#card" class="nav__link">Future Trade</a></li>
-                <li class="nav__item"><a href="#compatibilidade" class="nav__link">Compatibilidade</a></li>
-                <li class="nav__item"><a href="#subscription" class="nav__link">Comprar</a></li>                    
-                <li class="nav__item"><a href="https://futuretrade-login.vercel.app/login" target="_blank" class="nav__link">Login</a></li>
-            </ul>
-            <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#home" class="nav__link active-link">Início</a></li>
+            <li class="nav__item"><a href="#grafico" class="nav__link">Gráfico</a></li>
+            <li class="nav__item"><a href="#card" class="nav__link">Future Trade</a></li>
+            <li class="nav__item"><a href="#compatibilidade" class="nav__link">Compatibilidade</a></li>
+            <li class="nav__item"><a href="#subscription" class="nav__link">Comprar</a></li>
+            <li class="nav__item"><a href="https://futuretrade-login.vercel.app/login" target="_blank" class="nav__link">Login</a></li>
+          </ul>
+          <div class="nav__close" id="nav-close"><i class="ri-close-line"></i></div>
         </div>
         <div class="nav__actions">
-            
-            </i>
-            <div  class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
+          <div class="nav__toggle" id="nav-toggle"><i class="ri-menu-line"></i></div>
         </div>
-    </nav>
-</header>
-  <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-   {
-  "symbols": [
-    {
-      "description": "Mini Dólar",
-      "proName": "BMFBOVESPA:WDO1!"
-    },
-    {
-      "description": "Mini Índice",
-      "proName": "BMFBOVESPA:WIN1!"
-    }
-  ],
-  "isTransparent": true,
-  "showSymbolLogo": true,
-  "colorTheme": "dark",
-  "locale": "br"
-}
-  </script>
-</div>
+      </nav>
+    </header>
 
-<!--HOME -->    
-  <div class="glow-background"></div> <!-- Adicionando o fundo com glow -->
-  <main class="main">
-        <section class="home section" id="home">
-          <div class="home__container container grid">
-            <img src="media/gaficcopizza2.png" alt="Gráfico de pizza mostrando resultados de trading" class="home__img">
-            <div class="home__data">
-              <h1 class="home__title">AS MELHORES <span>FERRAMENTAS</span> PARA DAY TRADE</h1>                    
-              <p class="home__description">Desenvolvemos soluções financeiras inovadoras para traders.</p>
-            </div>
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"></div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+       {
+          "symbols": [
+            { "description": "Mini Dólar", "proName": "BMFBOVESPA:WDO1!" },
+            { "description": "Mini Índice", "proName": "BMFBOVESPA:WIN1!" }
+          ],
+          "isTransparent": true,
+          "showSymbolLogo": true,
+          "colorTheme": "dark",
+          "locale": "br"
+        }
+      </script>
+    </div>
+
+    <!-- HOME -->
+    <div class="glow-background"></div>
+    <main class="main">
+      <section class="home section" id="home">
+        <div class="home__container container grid">
+          <img src="media/gaficcopizza2.png" alt="Gráfico de pizza mostrando resultados de trading" class="home__img" />
+          <div class="home__data">
+            <h1 class="home__title">AS MELHORES <span>FERRAMENTAS</span> PARA DAY TRADE</h1>
+            <p class="home__description">Desenvolvemos soluções financeiras inovadoras para traders.</p>
           </div>
-        </section>
-  </main>
-<!-- video grafico -->  
-  <section class="video-section" id="grafico">
-        <video autoplay muted loop playsinline>
-            <source src="media/Gravação de Tela 2025-01-08 às 20.51.39.mov" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-  </section>
-<!-- card-principal -->
-  <section class="card-section" id="card">
-        <div class="card">
-            <div class="card-glow"></div> <!-- Adiciona o efeito de glow -->
-            <img src="media/Fique por dentro2.zip - 1.png" alt="Composite Image" class="card-image">
-            <div class="card-content">
-                <h2>Potencialize suas operações com a <span>Future Trade</span></h2>
-                <p>A melhor ferramenta para Day Trade está ao seu alcance. Nossos indicadores avançados foram projetados para ajudar traders a tomar decisões rápidas, precisas e lucrativas. Aproveite esta oportunidade única para elevar seu desempenho no mercado.</p>
-                <!--<button>Descubra Agora</button> !-->
-            </div>
         </div>
-  </section>
-<!-- video tela celular -->
-  <section class="iphone section" id="iphone">
-      <div class="container iphone__wrapper">
-          <!-- Título no topo -->
-          <h1 class="section__title iphone">MAXIMIZE SEUS RESULTADOS!</h1>
-  
-          <!-- Grid de duas colunas: iPhone e lista de recursos -->
-          <div class="iphone__grid">
-              <!-- Coluna 1: iPhone com o vídeo -->
-              <div class="iphone-container">
-                  <!-- Div de Glow -->
-                  <div class="iphone-glow"></div> <!-- Adiciona o glow atrás do iPhone -->
-  
-                  <!-- Moldura do iPhone -->
-                  <img src="media/tela.png" alt="Moldura do iPhone" class="iphone-frame">
-  
-                  <!-- Vídeo dentro do iPhone -->
-                  <div class="video-wrapper">
-                      <video autoplay loop muted playsinline controlslist="nodownload nofullscreen noremoteplayback">
-                          <source src="media/copy_8E969349-55E5-46BF-B745-EF3853FBA2EB .mp4" type="video/mp4">
-                          Seu navegador não suporta o elemento de vídeo.
-                      </video>
-                  </div>
-              </div>
-  
-              <!-- Coluna 2: Lista com ícones -->
-              <div class="features-list">
-                  <ul>
-                      <li>Mini Índice <img src="media/BR.ico" alt="bandeira Brasil"></li>
-                      <li>Mini Dólar <img src="media/EUA.ico" alt="bandeira EUA"></li>                      
-                      <li>Forex <img src="media/MUNDO.ico" alt="globo"></li>
-                      <li>Crypto <img src="media/BITCOIN.ico" alt="logo Bitcoin"></li>
-                  </ul>
-              </div>
-          </div>
+      </section>
+    </main>
+
+    <!-- Vídeo gráfico -->
+    <section class="video-section" id="grafico">
+      <video autoplay muted loop playsinline>
+        <source src="media/Gravação de Tela 2025-01-08 às 20.51.39.mov" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </section>
+
+    <!-- Card principal -->
+    <section class="card-section" id="card">
+      <div class="card">
+        <div class="card-glow"></div>
+        <img src="media/Fique por dentro2.zip - 1.png" alt="Composite Image" class="card-image" />
+        <div class="card-content">
+          <h2>Potencialize suas operações com a <span>Future Trade</span></h2>
+          <p>A melhor ferramenta para Day Trade está ao seu alcance. Nossos indicadores avançados foram projetados para ajudar traders a tomar decisões rápidas, precisas e lucrativas. Aproveite esta oportunidade única para elevar seu desempenho no mercado.</p>
+        </div>
       </div>
-  </section> 
-<!-- COMPATIBILIDADE -->
-  <section class="compatibility section" id="compatibilidade">
-  <h2 class="section__title highlight">COMPATIBILIDADE GARANTIDA</h2>
-  <p class="compatibility__description">Nossos indicadores se integram perfeitamente às plataformas líderes,<br> proporcionando mais agilidade e precisão nas suas operações.</p>
-  <div class="compatibility__container container grid">
-      <article class="compatibility__card">
-          <img src="media/profittxt.png" alt="Logo Profit" class="compatibility__logo">
+    </section>
+
+    <!-- Vídeo tela celular -->
+    <section class="iphone section" id="iphone">
+      <div class="container iphone__wrapper">
+        <h1 class="section__title iphone">MAXIMIZE SEUS RESULTADOS!</h1>
+        <div class="iphone__grid">
+          <div class="iphone-container">
+            <div class="iphone-glow"></div>
+            <img src="media/tela.png" alt="Moldura do iPhone" class="iphone-frame" />
+            <div class="video-wrapper">
+              <video autoplay loop muted playsinline controlslist="nodownload nofullscreen noremoteplayback">
+                <source src="media/copy_8E969349-55E5-46BF-B745-EF3853FBA2EB .mp4" type="video/mp4" />
+                Seu navegador não suporta o elemento de vídeo.
+              </video>
+            </div>
+          </div>
+          <div class="features-list">
+            <ul>
+              <li>Mini Índice <img src="media/BR.ico" alt="bandeira Brasil" /></li>
+              <li>Mini Dólar <img src="media/EUA.ico" alt="bandeira EUA" /></li>
+              <li>Forex <img src="media/MUNDO.ico" alt="globo" /></li>
+              <li>Crypto <img src="media/BITCOIN.ico" alt="logo Bitcoin" /></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPATIBILIDADE -->
+    <section class="compatibility section" id="compatibilidade">
+      <h2 class="section__title highlight">COMPATIBILIDADE GARANTIDA</h2>
+      <p class="compatibility__description">Nossos indicadores se integram perfeitamente às plataformas líderes,<br> proporcionando mais agilidade e precisão nas suas operações.</p>
+      <div class="compatibility__container container grid">
+        <article class="compatibility__card">
+          <img src="media/profittxt.png" alt="Logo Profit" class="compatibility__logo" />
           <a href="https://www.nelogica.com.br/produtos" target="_blank" class="compatibility__link">
-              <div class="compatibility__img-wrapper">
-                  <img src="media/profit.png" alt="Plataforma Profit" class="compatibility__img">
-              </div>
+            <div class="compatibility__img-wrapper">
+              <img src="media/profit.png" alt="Plataforma Profit" class="compatibility__img" />
+            </div>
           </a>
-      </article>
-      <article class="compatibility__card">
-          <img src="media/vectortxt.png" alt="Logo Vector" class="compatibility__logo vector">
+        </article>
+        <article class="compatibility__card">
+          <img src="media/vectortxt.png" alt="Logo Vector" class="compatibility__logo vector" />
           <a href="https://www.vectorcrypto.com.br/pt" target="_blank" class="compatibility__link">
-              <div class="compatibility__img-wrapper">
-                  <img src="media/vector.png" alt="Plataforma Vector" class="compatibility__img">
-              </div>
+            <div class="compatibility__img-wrapper">
+              <img src="media/vector.png" alt="Plataforma Vector" class="compatibility__img" />
+            </div>
           </a>
-      </article>
-      <article class="compatibility__card">
-          <img src="media/blackarrowtxt.png" alt="Logo BlackArrow" class="compatibility__logo">
+        </article>
+        <article class="compatibility__card">
+          <img src="media/blackarrowtxt.png" alt="Logo BlackArrow" class="compatibility__logo" />
           <a href="https://www.blackarrowtrading.com/pt" target="_blank" class="compatibility__link">
-              <div class="compatibility__img-wrapper">
-                  <img src="media/blackarrow.png" alt="Plataforma BlackArrow" class="compatibility__img">
-              </div>
+            <div class="compatibility__img-wrapper">
+              <img src="media/blackarrow.png" alt="Plataforma BlackArrow" class="compatibility__img" />
+            </div>
           </a>
-      </article>
-  </div>
-  </section>
+        </article>
+      </div>
+    </section>
 
+    <!-- SEÇÃO DE DEPOIMENTOS (TESTIMONIAL) -->
+    <section class="testimonial-section">
+      <h2 class="section__title">Depoimentos Reais</h2>
+      <div class="swiper testimonial-swiper">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <p class="testimonial-message">
+                "Depois que comecei a usar o Indicador da Future Trade, percebi uma melhora notável na precisão das minhas análises. Hoje opero com mais confiança e consistência."
+              </p>
+              <p class="testimonial-author">- Bruno Almeida</p>
+              <div class="testimonial-stars">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <p class="testimonial-message">
+                "O Indicador é extremamente intuitivo e eficiente. Consegui identificar oportunidades que antes passavam despercebidas, o que fez toda a diferença no meu dia a dia de operações."
+              </p>
+              <p class="testimonial-author">- Camila Rodrigues</p>
+              <div class="testimonial-stars">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <p class="testimonial-message">
+                "Utilizo o Indicador da Future Trade há meses e ele se tornou uma ferramenta indispensável. Meus resultados melhoraram e hoje consigo tomar decisões com muito mais segurança."
+              </p>
+              <p class="testimonial-author">- Ricardo Silva</p>
+              <div class="testimonial-stars">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Botões de navegação -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
 
-  <section class="subscription-section" id="subscription">
-    <div class="subscription-card">
+    <!-- SUBSCRIPTION -->
+    <section class="subscription-section" id="subscription">
+      <div class="subscription-card">
         <div class="subscription-card-glow"></div>
         <h2 class="subscription-title">Essencial</h2>
-        
         <div class="subscription-price-container">
-            <span class="subscription-price">R$ 249,00</span>
-            <span class="subscription-price-year">/ ano</span>
+          <span class="subscription-price">R$ 249,00</span>
+          <span class="subscription-price-year">/ ano</span>
         </div>
-        
         <div class="daily-price">Apenas R$ 0,68 por dia</div>
         <div class="subscription-discount">Pagamento único, válido por 12 meses</div>
-        
         <div class="subscription-description-card">
-            <ul class="subscription-benefits">
-                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="check-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Acesso total ao indicador durante todo o período da assinatura.</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="check-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Atualizações garantidas.</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="check-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Todos os vídeos tutoriais, ensinando passo a passo como instalar e utilizar o indicador.</li>
-                <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="check-icon"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg> Conteúdos exclusivos para aprimorar seu conhecimento e tirar o máximo proveito da ferramenta.</li>
-            </ul>
+          <ul class="subscription-benefits">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="check-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+              </svg>
+              Acesso total ao indicador durante todo o período da assinatura.
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="check-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+              </svg>
+              Atualizações garantidas.
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="check-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+              </svg>
+              Todos os vídeos tutoriais, ensinando passo a passo como instalar e utilizar o indicador.
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="check-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+              </svg>
+              Conteúdos exclusivos para aprimorar seu conhecimento e tirar o máximo proveito da ferramenta.
+            </li>
+          </ul>
         </div>
-        
-        <a href="https://futuretrade-login.vercel.app/login"  target="_blank" class="subscribe-button">
-            <span>Assinar Agora </span>
-            <span class="arrow-icon"> →</span>
+        <a href="https://futuretrade-login.vercel.app/login" target="_blank" class="subscribe-button">
+          <span>Assinar Agora </span>
+          <span class="arrow-icon"> →</span>
         </a>
-    </div>
-</section>
-  
+      </div>
+    </section>
 
+    <!-- BOTÃO WHATSAPP FIXO -->
+    <a href="https://wa.me/5541999883694?text=Olá%2C%20gostaria%20de%20mais%20informações!" class="whatsapp-button" target="_blank">
+      <i class="ri-whatsapp-fill whatsapp-icon"></i>
+    </a>
 
+    <!-- SCROLL UP -->
+    <a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>
 
-  
-
- <!-- BOTÃO WHATSAPP FIXO -->
- <a href="https://wa.me/5541999883694?text=Olá%2C%20gostaria%20de%20mais%20informações!" class="whatsapp-button" target="_blank">
-  <i class="ri-whatsapp-fill whatsapp-icon"></i>
-</a>
-
-<!-- SCROLL UP -->
-<a href="#" class="scrollup" id="scroll-up"><i class="ri-arrow-up-line"></i></a>  
-  
-  
-  
-  
-  
-  
-  
-    
+    <!-- SWIPER JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Outros scripts já existentes -->
     <script src="js/scrollreveal.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/cardpayment.js"></script>
-</body>    
-</body>
+    <!-- Script da seção de depoimentos -->
+    <script src="js/testimonial.js"></script>
+  </body>
 </html>
