@@ -1,40 +1,44 @@
 /*=============== SHOW MENU ===============*/
-const navMenu = document.getElementById('nav-menu'),
-      navToggle = document.getElementById('nav-toggle'),
-      navClose = document.getElementById('nav-close');
+const navMenu = document.getElementById("nav-menu"),
+  navToggle = document.getElementById("nav-toggle"),
+  navClose = document.getElementById("nav-close");
 
 // Abrir Menu
 if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-menu');
-        document.body.style.overflow = 'hidden';
-    });
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.add("show-menu");
+    document.body.style.overflow = "hidden";
+  });
 }
 
 // Fechar Menu
 if (navClose) {
-    navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
-        document.body.style.overflow = 'auto';
-    });
+  navClose.addEventListener("click", () => {
+    navMenu.classList.remove("show-menu");
+    document.body.style.overflow = "auto";
+  });
 }
 
 // Fechar ao clicar em links
-const navLinks = document.querySelectorAll('.nav__link');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu');
-        document.body.style.overflow = 'auto';
-    });
+const navLinks = document.querySelectorAll(".nav__link");
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("show-menu");
+    document.body.style.overflow = "auto";
+  });
 });
 
 // Fechar ao clicar fora
-document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 768 && navMenu.classList.contains('show-menu') && 
-        !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-        navMenu.classList.remove('show-menu');
-        document.body.style.overflow = 'auto';
-    }
+document.addEventListener("click", (e) => {
+  if (
+    window.innerWidth <= 768 &&
+    navMenu.classList.contains("show-menu") &&
+    !navMenu.contains(e.target) &&
+    !navToggle.contains(e.target)
+  ) {
+    navMenu.classList.remove("show-menu");
+    document.body.style.overflow = "auto";
+  }
 });
 /*=============== SCROLL UP ===============*/
 const scrollUp = () => {
@@ -114,3 +118,39 @@ sr.reveal(
     interval: 150,
   }
 );
+
+/*=============== FAQ ===============*/
+
+document.addEventListener("DOMContentLoaded", function () {
+  const faqToggle = document.getElementById("faqToggle");
+  const faqContent = document.getElementById("faqContent");
+
+  // Expande/Recolhe ao clicar no cabeçalho
+  faqToggle.addEventListener("click", () => {
+    faqContent.classList.toggle("show");
+    faqToggle.classList.toggle("active");
+  });
+
+  // Fecha ao clicar fora do FAQ
+  document.addEventListener("click", (e) => {
+    const isClickInsideFAQ = faqToggle.contains(e.target) || faqContent.contains(e.target);
+    if (!isClickInsideFAQ && faqContent.classList.contains("show")) {
+      faqContent.classList.remove("show");
+      faqToggle.classList.remove("active");
+    }
+  });
+
+  // Acordeão interno (abre/fecha perguntas individualmente)
+  const faqItems = document.querySelectorAll(".faq-item");
+  faqItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      if (item.classList.contains("active")) {
+        item.classList.remove("active");
+      } else {
+        faqItems.forEach((el) => el.classList.remove("active"));
+        item.classList.add("active");
+      }
+    });
+  });
+  
+});
