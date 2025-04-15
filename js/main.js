@@ -1,29 +1,41 @@
 /*=============== SHOW MENU ===============*/
-const navMenu = document.getElementById("nav-menu"),
-  navToggle = document.getElementById("nav-toggle"),
-  navClose = document.getElementById("nav-close");
+const navMenu = document.getElementById('nav-menu'),
+      navToggle = document.getElementById('nav-toggle'),
+      navClose = document.getElementById('nav-close');
 
+// Abrir Menu
 if (navToggle) {
-  navToggle.addEventListener("click", () => {
-    navMenu.classList.add("show-menu");
-  });
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.add('show-menu');
+        document.body.style.overflow = 'hidden';
+    });
 }
 
+// Fechar Menu
 if (navClose) {
-  navClose.addEventListener("click", () => {
-    navMenu.classList.remove("show-menu");
-  });
+    navClose.addEventListener('click', () => {
+        navMenu.classList.remove('show-menu');
+        document.body.style.overflow = 'auto';
+    });
 }
 
-/*=============== REMOVE MENU MOBILE ===============*/
-const navLink = document.querySelectorAll(".nav__link");
+// Fechar ao clicar em links
+const navLinks = document.querySelectorAll('.nav__link');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('show-menu');
+        document.body.style.overflow = 'auto';
+    });
+});
 
-navLink.forEach((n) =>
-  n.addEventListener("click", () => {
-    navMenu.classList.remove("show-menu");
-  })
-);
-
+// Fechar ao clicar fora
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768 && navMenu.classList.contains('show-menu') && 
+        !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+        navMenu.classList.remove('show-menu');
+        document.body.style.overflow = 'auto';
+    }
+});
 /*=============== SCROLL UP ===============*/
 const scrollUp = () => {
   const scrollUp = document.getElementById("scroll-up");
