@@ -92,13 +92,44 @@ window.addEventListener("scroll", blurHeader);
 var swiper = new Swiper(".testimonial-swiper", {
   loop: true,
   autoplay: {
-    delay: 7000,
-    disableOnInteraction: false,
+    delay: 4000,
+    disableOnInteraction: true,
+  },
+  slidesPerView: 1,
+  spaceBetween: 16,
+  centeredSlides: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
   },
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+  keyboard: {
+    enabled: true,
+  },
+  effect: "slide",
+  speed: 600,
+  breakpoints: {
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 24,
+      centeredSlides: false,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 32,
+    },
+  },
+});
+
+const swiperContainer = document.querySelector('.testimonial-swiper');
+swiperContainer.addEventListener('mouseenter', () => {
+  swiper.autoplay.stop();
+});
+swiperContainer.addEventListener('mouseleave', () => {
+  swiper.autoplay.start();
 });
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
