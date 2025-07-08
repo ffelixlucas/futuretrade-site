@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar Financeiro | Termômetro do Mini Índice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .thermometer-container {
+            perspective: 1000px;
+        }
+        .thermometer {
+            background: linear-gradient(to top, #3b82f6 0%, #ef4444 50%, #10b981 100%);
+            background-size: 100% 200%;
+            transition: all 1s ease;
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+        .thermometer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 50%);
+            border-radius: 9999px;
+        }
+        .market-hot {
+            animation: pulseHot 2s infinite;
+        }
+        .market-cold {
+            animation: pulseCold 2s infinite;
+        }
+        @keyframes pulseHot {
+            0% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.8); }
+            100% { box-shadow: 0 0 10px rgba(16, 185, 129, 0.5); }
+        }
+        @keyframes pulseCold {
+            0% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.8); }
+            100% { box-shadow: 0 0 10px rgba(239, 68, 68, 0.5); }
+        }
+        .stock-card {
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        .stock-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+        .tradingview-widget-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <!-- Header with Market Summary -->
+    <header class="bg-gradient-to-r from-gray-800 to-gray-900 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <div class="bg-blue-600 p-2 rounded-lg mr-3">
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">Radar Financeiro</h1>
+                        <p class="text-sm text-gray-400">Termômetro do Mini Índice</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 text-center md:text-left">
+                    <div>
+                        <p class="text-gray-400 text-sm">IBOV</p>
+                        <p class="font-bold text-green-400">+1.25%</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 text-sm">DÓLAR</p>
+                        <p class="font-bold text-red-400">-0.32%</p>
+                    </div>
+                    <div>
+                        <p class="text-gray-400 text-sm">S&P 500</p>
+                        <p class="font-bold text-green-400">+0.78%</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-4">
+                    <span id="market-time" class="bg-gray-700 px-3 py-1 rounded-full text-sm">10:45:23</span>
+                    <button class="bg-blue-600 hover:bg-blue-700 px-4 py-1 rounded-full text-sm font-medium transition">
+                        <i class="fas fa-sync-alt mr-1"></i> Atualizar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        <!-- Market Overview Section -->
+        <section class="mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Thermometer Visualization -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="text-lg font-bold mb-4 flex items-center">
+                        <i class="fas fa-fire mr-2 text-orange-400"></i> Termômetro do Mercado
+                    </h2>
+                    
+                    <div class="thermometer-container flex flex-col items-center">
+                        <div id="market-thermometer" class="thermometer w-24 h-64 rounded-full mb-4 relative overflow-hidden">
+                            <div class="absolute bottom-0 left-0 right-0 bg-gray-900 bg-opacity-30 h-1/3"></div>
+                            <div class="absolute top-0 left-0 right-0 flex items-center justify-center pt-4">
+                                <span id="market-temp" class="text-white font-bold text-xl glow-text">0°</span>
+                            </div>
+                        </div>
+                        
+                        <div id="market-message" class="text-center">
+                            <h3 class="text-2xl font-bold mb-2">Mercado Neutro</h3>
+                            <p class="text-gray-400">Índice oscilando sem direção clara</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-4 border-t border-gray-700">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-red-400"><i class="fas fa-arrow-down mr-1"></i> Vendedores</span>
+                            <span class="text-gray-400">Neutro</span>
+                            <span class="text-green-400"><i class="fas fa-arrow-up mr-1"></i> Compradores</span>
+                        </div>
+                        <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                            <div id="market-bias-bar" class="bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 h-2 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mini Index Chart -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg lg:col-span-2">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-lg font-bold flex items-center">
+                            <i class="fas fa-chart-bar mr-2 text-blue-400"></i> Mini Índice - WIN$ (15min)
+                        </h2>
+                        <div class="flex space-x-2">
+                            <button class="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-xs transition">1D</button>
+                            <button class="bg-blue-600 px-3 py-1 rounded text-xs">15M</button>
+                            <button class="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-xs transition">1H</button>
+                            <button class="bg-gray-700 hover:bg-gray-600 px-3 py-1 rounded text-xs transition">4H</button>
+                        </div>
+                    </div>
+                    
+                    <div class="h-64">
+                        <canvas id="miniIndexChart"></canvas>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4 mt-4 text-center">
+                        <div class="bg-gray-700 p-2 rounded">
+                            <p class="text-gray-400 text-xs">Abertura</p>
+                            <p class="font-medium">112,345</p>
+                        </div>
+                        <div class="bg-gray-700 p-2 rounded">
+                            <p class="text-gray-400 text-xs">Máxima</p>
+                            <p class="font-medium text-green-400">112,890</p>
+                        </div>
+                        <div class="bg-gray-700 p-2 rounded">
+                            <p class="text-gray-400 text-xs">Mínima</p>
+                            <p class="font-medium text-red-400">112,120</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Top Stocks Section -->
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fas fa-star mr-2 text-yellow-400"></i> Ações com Maior Peso no Índice
+            </h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                <!-- Stock Cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Market Depth and Volume -->
+        <section class="mb-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Volume Chart -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="text-lg font-bold mb-4 flex items-center">
+                        <i class="fas fa-chart-pie mr-2 text-purple-400"></i> Volume por Setor
+                    </h2>
+                    <div class="h-64">
+                        <canvas id="volumeChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Market Depth -->
+                <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="text-lg font-bold mb-4 flex items-center">
+                        <i class="fas fa-layer-group mr-2 text-green-400"></i> Profundidade de Mercado
+                    </h2>
+                    <div class="h-64">
+                        <canvas id="depthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- TradingView Widget -->
+        <section class="mb-8">
+            <div class="bg-gray-800 rounded-xl p-6 shadow-lg">
+                <h2 class="text-lg font-bold mb-4 flex items-center">
+                    <i class="fas fa-chart-line mr-2 text-red-400"></i> Análise Técnica - IBOVESPA
+                </h2>
+                <div class="tradingview-widget-container h-96">
+                    <!-- TradingView Widget would be embedded here in a real application -->
+                    <div class="flex items-center justify-center h-full bg-gray-700 rounded-lg">
+                        <div class="text-center">
+                            <i class="fas fa-chart-line text-4xl text-gray-500 mb-2"></i>
+                            <p class="text-gray-400">Gráfico do TradingView</p>
+                            <p class="text-sm text-gray-500">Em uma implementação real, este espaço conteria um widget do TradingView</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Market News -->
+        <section>
+            <h2 class="text-xl font-bold mb-4 flex items-center">
+                <i class="fas fa-newspaper mr-2 text-blue-400"></i> Notícias que Movem o Mercado
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- News Cards will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700 py-6">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="bg-blue-600 p-2 rounded-lg mr-3">
+                            <i class="fas fa-chart-line text-white"></i>
+                        </div>
+                        <span class="font-bold">Radar Financeiro</span>
+                    </div>
+                    <p class="text-sm text-gray-400 mt-1">Termômetro do Mini Índice em tempo real</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Termos</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacidade</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Sobre</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Contato</a>
+                </div>
+                
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-blue-600 rounded-full flex items-center justify-center text-white transition">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-blue-600 rounded-full flex items-center justify-center text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-blue-600 rounded-full flex items-center justify-center text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-sm text-gray-500">
+                <p>© 2023 Radar Financeiro. Dados com delay de 15 minutos. Não é recomendação de investimento.</p>
+                <p class="mt-1">Desenvolvido para traders e investidores que buscam insights de mercado.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sample data for the dashboard
+        const stocksData = [
+            { symbol: 'PETR4', name: 'Petrobras', price: 32.45, change: 1.23, changePercent: 2.3, volume: '450M', weight: '8.2%', sector: 'Energia' },
+            { symbol: 'VALE3', name: 'Vale', price: 68.90, change: -0.75, changePercent: -0.8, volume: '380M', weight: '7.5%', sector: 'Mineração' },
+            { symbol: 'ITUB4', name: 'Itaú', price: 26.30, change: 0.15, changePercent: 0.5, volume: '290M', weight: '6.8%', sector: 'Financeiro' },
+            { symbol: 'BBDC4', name: 'Bradesco', price: 14.20, change: -0.30, changePercent: -1.2, volume: '220M', weight: '5.3%', sector: 'Financeiro' },
+            { symbol: 'BBAS3', name: 'Banco do Brasil', price: 47.85, change: 0.65, changePercent: 1.1, volume: '180M', weight: '4.9%', sector: 'Financeiro' }
+        ];
+
+        const newsData = [
+            { title: 'BC decide manter taxa Selic em 13,75% ao ano', source: 'Valor Econômico', time: '1h atrás', impact: 'high' },
+            { title: 'Petrobras anuncia redução no preço da gasolina', source: 'Reuters', time: '3h atrás', impact: 'medium' },
+            { title: 'Inflação oficial fica em 0,23% em junho, abaixo do esperado', source: 'Bloomberg', time: '5h atrás', impact: 'high' }
+        ];
+
+        // Market status simulation
+        const marketStatuses = [
+            { temp: -20, message: 'Mercado Frio', status: 'Frio', position: '0%', color: 'red' },
+            { temp: -10, message: 'Leve Baixa', status: 'Frio', position: '25%', color: 'red' },
+            { temp: 0, message: 'Mercado Neutro', status: 'Neutro', position: '50%', color: 'yellow' },
+            { temp: 10, message: 'Leve Alta', status: 'Quente', position: '75%', color: 'green' },
+            { temp: 20, message: 'Mercado Quente', status: 'Quente', position: '100%', color: 'green' }
+        ];
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate stock cards
+            const stocksContainer = document.querySelector('.grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-5.gap-4');
+            stocksData.forEach(stock => {
+                const changeClass = stock.changePercent > 0 ? 'text-green-400' : stock.changePercent < 0 ? 'text-red-400' : 'text-gray-400';
+                const changeIcon = stock.changePercent > 0 ? 'fa-arrow-up' : stock.changePercent < 0 ? 'fa-arrow-down' : 'fa-equals';
+                
+                const card = document.createElement('div');
+                card.className = 'stock-card bg-gray-800 rounded-lg p-4 shadow-md hover:shadow-lg transition cursor-pointer';
+                card.innerHTML = 
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold">${stock.symbol}</h3>
+                            <p class="text-sm text-gray-400">${stock.name}</p>
+                        </div>
+                        <span class="text-xs px-2 py-1 rounded ${stock.sector === 'Financeiro' ? 'bg-blue-900 text-blue-300' : stock.sector === 'Energia' ? 'bg-green-900 text-green-300' : 'bg-yellow-900 text-yellow-300'}">${stock.sector}</span>
+                    </div>
+                    <div class="text-2xl font-bold my-3">R$ ${stock.price.toFixed(2)}</div>
+                    <div class="flex justify-between items-center text-sm">
+                        <span class="${changeClass}">
+                            <i class="fas ${changeIcon} mr-1"></i>
+                            ${Math.abs(stock.changePercent)}%
+                        </span>
+                        <span class="text-gray-400">${stock.volume}</span>
+                    </div>
+                ;
+                
+                stocksContainer.appendChild(card);
+            });
+
+            // Populate news cards
+            const newsContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-3.gap-4');
+            newsData.forEach(news => {
+                const impactColor = news.impact === 'high' ? 'bg-red-900' : news.impact === 'medium' ? 'bg-yellow-900' : 'bg-gray-700';
+                
+                const card = document.createElement('div');
+                card.className = 'bg-gray-800 rounded-lg p-4 shadow-md hover:shadow-lg transition cursor-pointer';
+                card.innerHTML = 
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="text-xs px-2 py-1 rounded ${impactColor}">${news.impact === 'high' ? 'Alto Impacto' : news.impact === 'medium' ? 'Médio Impacto' : 'Geral'}</span>
+                        <span class="text-xs text-gray-400">${news.time}</span>
+                    </div>
+                    <h3 class="font-bold mb-2">${news.title}</h3>
+                    <p class="text-sm text-gray-400">Fonte: ${news.source}</p>
+                ;
+                
+                newsContainer.appendChild(card);
+            });
+
+            // Initialize charts
+            initCharts();
+            
+            // Simulate market changes
+            simulateMarketChanges();
+            
+            // Update clock
+            updateMarketTime();
+            setInterval(updateMarketTime, 1000);
+        });
+
+        // Initialize Chart.js charts
+        function initCharts() {
+            // Mini Index Chart
+            const miniIndexCtx = document.getElementById('miniIndexChart').getContext('2d');
+            const miniIndexChart = new Chart(miniIndexCtx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({length: 20}, (_, i) => ${i}:00),
+                    datasets: [{
+                        label: 'WIN$',
+                        data: [112120, 112200, 112250, 112300, 112400, 112450, 112500, 112600, 112650, 112700, 112750, 112800, 112750, 112700, 112650, 112700, 112750, 112800, 112850, 112890],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
+                        tension: 0.4,
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { display: false },
+                        y: { 
+                            display: false,
+                            min: 112000
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    }
+                }
+            });
+
+            // Volume by Sector Chart
+            const volumeCtx = document.getElementById('volumeChart').getContext('2d');
+            const volumeChart = new Chart(volumeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Financeiro', 'Energia', 'Mineração', 'Varejo', 'Outros'],
+                    datasets: [{
+                        data: [35, 25, 20, 12, 8],
+                        backgroundColor: [
+                            '#3b82f6',
+                            '#10b981',
+                            '#f59e0b',
+                            '#8b5cf6',
+                            '#6b7280'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                color: '#9ca3af',
+                                font: {
+                                    size: 11
+                                }
+                            }
+                        }
+                    },
+                    cutout: '70%'
+                }
+            });
+
+            // Market Depth Chart
+            const depthCtx = document.getElementById('depthChart').getContext('2d');
+            const depthChart = new Chart(depthCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Venda 5', 'Venda 4', 'Venda 3', 'Venda 2', 'Venda 1', 'Compra 1', 'Compra 2', 'Compra 3', 'Compra 4', 'Compra 5'],
+                    datasets: [{
+                        label: 'Ofertas',
+                        data: [120, 180, 220, 280, 350, 400, 320, 240, 180, 120],
+                        backgroundColor: [
+                            '#ef4444', '#ef4444', '#ef4444', '#ef4444', '#ef4444',
+                            '#10b981', '#10b981', '#10b981', '#10b981', '#10b981'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        x: { 
+                            display: true,
+                            grid: { display: false },
+                            ticks: { color: '#9ca3af' }
+                        },
+                        y: { 
+                            display: true,
+                            grid: { color: 'rgba(156, 163, 175, 0.1)' },
+                            ticks: { color: '#9ca3af' }
+                        }
+                    },
+                    indexAxis: 'y'
+                }
+            });
+        }
+
+        // Simulate market status changes
+        function simulateMarketChanges() {
+            let currentStatusIndex = 2; // Start with neutral
+            
+            // Change status every 5-15 seconds
+            setInterval(() => {
+                // Randomly move up or down
+                const direction = Math.random() > 0.5 ? 1 : -1;
+                currentStatusIndex = Math.min(Math.max(currentStatusIndex + direction, 0), marketStatuses.length - 1);
+                
+                const status = marketStatuses[currentStatusIndex];
+                updateMarketStatus(status);
+                
+            }, 8000);
+        }
+
+        // Update market status display
+        function updateMarketStatus(status) {
+            const thermometer = document.getElementById('market-thermometer');
+            const marketTemp = document.getElementById('market-temp');
+            const marketMessage = document.getElementById('market-message');
+            
+            // Update thermometer
+            thermometer.style.backgroundPosition = 0% ${status.position};
+            
+            // Remove all animation classes
+            thermometer.classList.remove('market-hot', 'market-cold');
+            
+            // Add appropriate animation class
+            if (status.status === 'Quente') {
+                thermometer.classList.add('market-hot');
+            } else if (status.status === 'Frio') {
+                thermometer.classList.add('market-cold');
+            }
+            
+            // Update temperature
+            marketTemp.textContent = ${status.temp}°;
+            
+            // Update message
+            marketMessage.innerHTML = 
+                <h3 class="text-2xl font-bold mb-2 ${status.status === 'Quente' ? 'text-green-400' : status.status === 'Frio' ? 'text-red-400' : 'text-yellow-400'}">${status.message}</h3>
+                <p class="text-gray-400">${getRandomMarketPhrase(status.status)}</p>
+            ;
+            
+            // Update market bias bar
+            document.getElementById('market-bias-bar').style.width = ${(status.temp + 20) * 2.5}%;
+        }
+
+        // Get random market phrase based on status
+        function getRandomMarketPhrase(status) {
+            const phrases = {
+                'Frio': [
+                    'Vendedores dominam o mercado',
+                    'Pressão de baixa no mini índice',
+                    'Cautela recomendada nas operações',
+                    'Fluxo predominantemente vendido'
+                ],
+                'Neutro': [
+                    'O mini índice está oscilando sem direção definida',
+                    'Compradores e vendedores em equilíbrio',
+                    'Mercado aguardando novos gatilhos',
+                    'Ambiente de indecisão no pregão'
+                ],
+                'Quente': [
+                    'Compradores dominam o pregão',
+                    'Forte pressão de alta no índice',
+                    'Momento favorável para posições compradas',
+                    'Fluxo comprador sustentado'
+                ]
+            };
+            
+            const options = phrases[status];
+            return options[Math.floor(Math.random() * options.length)];
+        }
+
+        // Update market time
+        function updateMarketTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            
+            document.getElementById('market-time').textContent = ${hours}:${minutes}:${seconds};
+        }
+    </script>
+</body>
+</html>
